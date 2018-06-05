@@ -1,14 +1,13 @@
 {
-  "name": "myplasticfootprint_org",
-  "private": true,
-  "dependencies": {
-    "@rails/webpacker": "3.5",
-    "babel-preset-react": "^6.24.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+  "name": "react-webpack-rails-tutorial",
+  "version": "0.0.1",
+  "engines": {
+    "node": "5.10.0",
+    "npm": "3.5.0"
   },
-  "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev",
+    "test": "rspec"
   }
 }
