@@ -15,7 +15,7 @@ function select(state) {
 const Bottles = (props) => {
   const { dispatch, $$bottlesStore } = props;
   const actions = bindActionCreators(calculatorActionCreators, dispatch);
-  const { addSmallBottles, removeSmallBottles } = actions;
+  const { addSmallBottles, removeSmallBottles, addBigBottles, removeBigBottles } = actions;
   const small_bottles = $$bottlesStore.get('small_bottles');
   const big_bottles = $$bottlesStore.get('big_bottles');
 
@@ -24,7 +24,7 @@ const Bottles = (props) => {
   // <CalculatorWidget $$helloWorldStore={$$helloWorldStore} actions={actions} />
   return (
     <BottlesWidget {...{ 
-      addSmallBottles, removeSmallBottles,
+      addSmallBottles, removeSmallBottles, addBigBottles, removeBigBottles,
       small_bottles, big_bottles
     }} />
   );

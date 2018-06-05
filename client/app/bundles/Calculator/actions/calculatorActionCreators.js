@@ -3,7 +3,6 @@
 import { ADD_SMALL_BOTTLES, REMOVE_SMALL_BOTTLES, ADD_BIG_BOTTLES, REMOVE_BIG_BOTTLES } from '../constants/calculatorConstants';
 
 export function addSmallBottles(bottles){
-  console.log('bottles + ' + bottles);
   return {
     type: ADD_SMALL_BOTTLES,
     bottles

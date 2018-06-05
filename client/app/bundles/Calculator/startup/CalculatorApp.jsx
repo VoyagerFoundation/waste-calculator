@@ -3,7 +3,6 @@ import ReactOnRails from 'react-on-rails';
 import { Provider } from 'react-redux';
 
 import createStore from '../store/calculatorStore';
-import Calculator from '../containers/Calculator';
 import CalculatorWidget from '../components/CalculatorWidget';
 
 // See documentation for https://github.com/reactjs/react-redux.

@@ -5,6 +5,8 @@ export default class BottlesWidget extends React.Component {
   static propTypes = {
     addSmallBottles: PropTypes.func.isRequired,
     removeSmallBottles: PropTypes.func.isRequired,
+    addBigBottles: PropTypes.func.isRequired,
+    removeBigBottles: PropTypes.func.isRequired,
     small_bottles: PropTypes.number.isRequired,
     big_bottles: PropTypes.number.isRequired,
   };
@@ -13,83 +15,41 @@ export default class BottlesWidget extends React.Component {
     this.props.addSmallBottles(1);
   }
 
+  removeSmallBottle(){
+    this.props.removeSmallBottles(1);
+  }
 
-  ahoy(){
-    alert('ahoy');
+  addBigBottle(){
+    this.props.addBigBottles(1);
+  }
+
+  removeBigBottle(){
+    this.props.removeBigBottles(1);
   }
 
   render() {
-    const { small_bottles } = this.props;
+    const { small_bottles, big_bottles } = this.props;
     return (
           <div>
             <div className="row">
-              <button>
+              <button onClick={this.removeSmallBottle.bind(this)}>
                 Remove Small Bottle
               </button>
               <text>{small_bottles}</text>
-              <button 
-                onClick={this.addSmallBottle.bind(this)}
-                >
+              <button onClick={this.addSmallBottle.bind(this)}>
                 Add Small Bottle 
               </button>
-              <button 
-                onClick={this.addSmallBottle.bind(this)}
-              >
-                Add Small Bottle 
-              </button>
-              
             </div>
             <div className="row">
-            <a onClick={this.addSmallBottle.bind(this)}>
-                Remove Big Bottle
-              </a>
-              <text>{this.addSmallBottle.bind(this)}</text>
-              <button 
-                onClick={this.ahoy}
-                >
-                Add Big Bottle - Click mee 
+              <button onClick={this.removeBigBottle.bind(this)}>
+                Remove Small Bottle
+              </button>
+              <text>{big_bottles}</text>
+              <button onClick={this.addBigBottle.bind(this)}>
+                Add Small Bottle 
               </button>
             </div>
-            
           </div>
         );
   }
 }
-
-
-  // render(){
-  //   return (
-  //     <div>
-  //       <div className="row">
-  //         <button>
-  //           Remove Small Bottle
-  //         </button>
-  //         <text>{this.props.small_bottles}</text>
-  //         <button 
-  //           onClick={this.addSmallBottle}
-  //           >
-  //           Add Small Bottle 
-  //         </button>
-  //         <button 
-  //           onClick={this.addSmallBottle.bind(this)}
-  //         >
-  //           Add Small Bottle 
-  //         </button>
-          
-  //       </div>
-  //       <div className="row">
-  //       <a onClick={this.addSmallBottle}>
-  //           Remove Big Bottle
-  //         </a>
-  //         <text>{this.props.small_bottles}</text>
-  //         <button 
-  //           onClick={this.ahoy}
-  //           >
-  //           Add Big Bottle - Click mee 
-  //         </button>
-  //       </div>
-        
-  //     </div>
-  //   );
-  // }
-
