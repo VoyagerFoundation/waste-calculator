@@ -28,11 +28,23 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PET", 
           weight: 100,
           description: "coffe cup with plastic cover"
+        },
+        bin_bags: {
+          key: "bin_bags",
+          name: "bin bahs",
+          weight: 10, 
+          size: "1mm",  
+          plastic_type: "PET", 
+          weight: 100,
+          description: "big bin bags"
         }
       },
       screens: {
         weekly: {
           elements: ["small_bottle","big_bottle","coffee_cup"]
+        }, 
+        monthly: {
+          elements: ["bin_bags"]
         }
       } 
     }

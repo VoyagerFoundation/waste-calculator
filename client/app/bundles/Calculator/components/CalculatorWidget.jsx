@@ -19,8 +19,8 @@ export default class CalculatordWidget extends React.Component {
     const { items, item_types, $$screens } = this.props;
     
     const weekly_elements = $$screens.getIn(['weekly','elements']);
+    const monthly_elements = $$screens.getIn(['monthly','elements']);
     
-
     return (
       <div className="container">
         <h3>
@@ -28,6 +28,11 @@ export default class CalculatordWidget extends React.Component {
         </h3>
         <hr />
         {this.renderElements(weekly_elements)}
+        <h3>
+          Plastic Calculator Monthly
+        </h3>
+        <hr />
+        {this.renderElements(monthly_elements)}
       </div>
     );
   }
