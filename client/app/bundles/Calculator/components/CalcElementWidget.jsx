@@ -20,6 +20,11 @@ export default class CalcElementWidget extends React.Component {
     this.props.setItemAmount(key, new_val);
   }
 
+  setItem(new_val){
+    var key = this.props.item_type.get('key');
+    this.props.setItemAmount(key, new_val);
+  }
+
   render() {
     const { item_type, item } = this.props;
     var element_name  = item_type.get('name');

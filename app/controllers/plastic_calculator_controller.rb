@@ -41,10 +41,16 @@ class PlasticCalculatorController < ApplicationController
       },
       screens: {
         weekly: {
-          elements: ["small_bottle","big_bottle","coffee_cup"]
+          elements: {
+            small_bottle: {key: "small_bottle", type: "input" }, 
+            big_bottle: {key: "big_bottle", type: "input" },
+            coffee_cup: {key: "big_bottle", type: "input" }
+          }
         }, 
         monthly: {
-          elements: ["bin_bags"]
+          elements: {
+            bin_bags: {key: "bin_bags", type: "input" }
+          }
         }
       } 
     }

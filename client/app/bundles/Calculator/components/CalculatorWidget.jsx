@@ -5,13 +5,21 @@ import CalcElement from '../containers/CalcElement';
 export default class CalculatordWidget extends React.Component {
   
   renderElements(elements){ 
-    const { items, item_types } = this.props;
-
-    return _.map(elements.toArray(), element => {
-      console.log(element);
-      return(
-        <CalcElement item={items.get(element)} item_type={item_types.get(element)}  />
-      );
+    const { items, item_types, $$screens } = this.props;
+    const items_keys = Array.from( elements.keys() );
+    
+    return _.map(items_keys, element_key => {
+      var element = elements.get(element_key);
+      if('input' == element.type){
+        return(
+          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)}  />
+        );
+      }
+      else {
+        return(
+          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)}  />
+        );
+      }
     });
   }
 
@@ -19,6 +27,9 @@ export default class CalculatordWidget extends React.Component {
     const { items, item_types, $$screens } = this.props;
     
     const weekly_elements = $$screens.getIn(['weekly','elements']);
+    console.log('weekly');
+    console.log(Array.from( weekly_elements.keys() ));
+
     const monthly_elements = $$screens.getIn(['monthly','elements']);
     
     return (
