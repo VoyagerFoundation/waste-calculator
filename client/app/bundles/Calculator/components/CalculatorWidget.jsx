@@ -5,10 +5,9 @@ import CalcElement from '../containers/CalcElement';
 export default class CalculatordWidget extends React.Component {
 
   render() {
+    const { items, item_types } = this.props;
 
     if(!this.props.item_types)return(<div>Loading...</div>);
-    const item = this.props.items.get('small_bottle');
-    const item_type = this.props.item_types.get('small_bottle');
 
     return (
       <div className="container">
@@ -16,7 +15,9 @@ export default class CalculatordWidget extends React.Component {
           Hello!
         </h3>
         <hr />
-        <CalcElement item={item} item_type={item_type}  />
+        <CalcElement item={items.get('small_bottle')} item_type={item_types.get('small_bottle')}  />
+        <CalcElement item={items.get('big_bottle')} item_type={item_types.get('big_bottle')}  />
+        <CalcElement item={items.get('coffee_cup')} item_type={item_types.get('coffee_cup')}  />
       </div>
     );
   }
