@@ -1,28 +1,30 @@
 import Immutable from 'immutable';
 
-import { ADD_SMALL_BOTTLES, REMOVE_SMALL_BOTTLES, ADD_BIG_BOTTLES, REMOVE_BIG_BOTTLES  } from '../constants/calculatorConstants';
+import { ADD_CALC_ITEM, REMOVE_CALC_ITEM, SET_CALC_ITEM  } from '../constants/calculatorConstants';
 
 export const $$initialState = Immutable.fromJS({
-  bottles:  { // this is the default state that would be used if one were not passed into the store
-    small_bottles: 0,
-    big_bottles: 0
+  items:  { // stores items and their values
+  },
+  item_types:{ //store item_types for calculation
+    default:{
+    }
   }
 });
 
 export default function calculatorReducer($$state = $$initialState, action) {
-  const { type, bottles } = action;
-  const small_bottles = $$state.getIn(['bottles','small_bottles']);
-  const big_bottles = $$state.getIn(['bottles','big_bottles']);
+  const { calc_item_key, delta, type, new_amount } = action;
+  const amount = $$state.getIn(['items', calc_item_key, 'amount']);
 
   switch (type) {
-    case ADD_SMALL_BOTTLES:
-      return $$state.setIn(['bottles','small_bottles'], (small_bottles + bottles));
-    case REMOVE_SMALL_BOTTLES:
-      return $$state.setIn(['bottles','small_bottles'], (small_bottles - bottles));
-    case ADD_BIG_BOTTLES:
-      return $$state.setIn(['bottles','big_bottles'], (big_bottles + bottles));
-    case REMOVE_BIG_BOTTLES:
-      return $$state.setIn(['bottles','big_bottles'], (big_bottles - bottles));
+    case REMOVE_CALC_ITEM:
+      if((amount - delta) <= 0){
+        return $$state.setIn(['items',calc_item_key, 'amount'], 0);
+      }
+      return $$state.setIn(['items',calc_item_key, 'amount'], (amount - delta));
+    case ADD_CALC_ITEM:
+      return $$state.setIn(['items',calc_item_key, 'amount'], (amount + delta));
+    case SET_CALC_ITEM:
+      return $$state.setIn(['items',calc_item_key, 'amount'], new_amount);
     default:
       return $$state;
   }

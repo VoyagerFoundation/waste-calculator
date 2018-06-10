@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 
 import createStore from '../store/calculatorStore';
 import CalculatorWidget from '../components/CalculatorWidget';
+import Calculator from '../containers/Calculator';
+
 
 // See documentation for https://github.com/reactjs/react-redux.
 // This is how you get props from the Rails view into the redux store.
@@ -12,7 +14,7 @@ const CalculatorApp = (props, _railsContext) => {
   const store = createStore(props);
   const reactComponent = (
     <Provider store={store}>
-      <CalculatorWidget />
+      <Calculator />
     </Provider>
   );
   return reactComponent;

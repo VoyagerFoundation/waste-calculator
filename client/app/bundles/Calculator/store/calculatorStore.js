@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 
 // See
@@ -11,19 +12,23 @@ import { initialStates } from '../reducers';
 
 export default props => {
   // This is how we get initial props Rails into redux.
-  const { name } = props;
+  const { item_types } = props;
   const { $$calculatorState } = initialStates;
+
+  var initial_items = {};
+  _.map(item_types, (item_type) => {
+    initial_items[item_type.key]= { amount: 0, key: (item_type.key) };
+  });
 
   // Redux expects to initialize tHelloWorld store using an Object, not an Immutable.Map
   const initialState = {
     $$calculatorStore: $$calculatorState.merge({
-      bottles:{
-        small_bottles: 0,
-        big_bottles: 0
-      }
+      item_types: item_types, 
+      items: initial_items
     }),
   };
-
+  // console.log('initial state');
+  // console.log(initialState);
   const reducer = combineReducers(reducers);
   const composedStore = compose(
     applyMiddleware(thunkMiddleware)
