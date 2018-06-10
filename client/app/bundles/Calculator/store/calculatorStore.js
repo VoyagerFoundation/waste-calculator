@@ -12,7 +12,7 @@ import { initialStates } from '../reducers';
 
 export default props => {
   // This is how we get initial props Rails into redux.
-  const { item_types } = props;
+  const { item_types, screens } = props;
   const { $$calculatorState } = initialStates;
 
   var initial_items = {};
@@ -23,8 +23,9 @@ export default props => {
   // Redux expects to initialize tHelloWorld store using an Object, not an Immutable.Map
   const initialState = {
     $$calculatorStore: $$calculatorState.merge({
-      item_types: item_types, 
-      items: initial_items
+      item_types, 
+      items: initial_items, 
+      screens
     }),
   };
   // console.log('initial state');
