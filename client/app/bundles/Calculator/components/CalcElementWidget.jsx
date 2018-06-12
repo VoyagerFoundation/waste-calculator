@@ -26,10 +26,11 @@ export default class CalcElementWidget extends React.Component {
   }
 
   render() {
-    const { item_type, item } = this.props;
+    const { item_type, item, key} = this.props;
     var element_name  = item_type.get('name');
+    
     return (
-            <div className="row">
+            <div className="row" key={key}>
               <button onClick={this.removeItem.bind(this)}>
                 Remove {element_name}
               </button>

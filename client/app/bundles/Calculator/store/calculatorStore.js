@@ -28,8 +28,7 @@ export default props => {
       screens
     }),
   };
-  // console.log('initial state');
-  // console.log(initialState);
+
   const reducer = combineReducers(reducers);
   const composedStore = compose(
     applyMiddleware(thunkMiddleware)

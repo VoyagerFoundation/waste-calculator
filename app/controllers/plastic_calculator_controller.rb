@@ -5,7 +5,6 @@ class PlasticCalculatorController < ApplicationController
         small_bottle: {
           key: "small_bottle",
           name: "small bottle",
-          weight: 10, 
           size: "1mm",  
           plastic_type: "PET", 
           weight: 100,
@@ -14,7 +13,6 @@ class PlasticCalculatorController < ApplicationController
         big_bottle: {
           key: "big_bottle",
           name: "big bottle",
-          weight: 10, 
           size: "1mm",  
           plastic_type: "PET", 
           weight: 100,
@@ -23,7 +21,6 @@ class PlasticCalculatorController < ApplicationController
         coffee_cup: {
           key: "coffee_cup",
           name: "coffee cup",
-          weight: 10, 
           size: "1mm",  
           plastic_type: "PET", 
           weight: 100,
@@ -32,7 +29,6 @@ class PlasticCalculatorController < ApplicationController
         bin_bags: {
           key: "bin_bags",
           name: "bin bahs",
-          weight: 10, 
           size: "1mm",  
           plastic_type: "PET", 
           weight: 100,
@@ -41,13 +37,15 @@ class PlasticCalculatorController < ApplicationController
       },
       screens: {
         weekly: {
+          factor: 4,
           elements: {
-            small_bottle: {key: "small_bottle", type: "input" }, 
+            small_bottle: {key: "small_bottle", type: "input"}, 
             big_bottle: {key: "big_bottle", type: "input" },
             coffee_cup: {key: "big_bottle", type: "input" }
           }
         }, 
         monthly: {
+          factor: 1,
           elements: {
             bin_bags: {key: "bin_bags", type: "input" }
           }

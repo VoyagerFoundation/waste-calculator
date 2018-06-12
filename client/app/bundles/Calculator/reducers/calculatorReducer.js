@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 
-import { ADD_CALC_ITEM, REMOVE_CALC_ITEM, SET_CALC_ITEM  } from '../constants/calculatorConstants';
+import { SET_CALC_ITEM  } from '../constants/calculatorConstants';
 
 export const $$initialState = Immutable.fromJS({
   items:  { // stores items and their values
@@ -11,20 +11,39 @@ export const $$initialState = Immutable.fromJS({
   }
 });
 
+function calculateWaste(item_types, items, screens){
+
+  var waste = { 
+    total_monthly: 0,
+    total_yearly: 0
+  }
+
+  items.forEach(element => {
+    var monthly_factor = 1;
+    let element_key = element.get('key');
+
+    if(!screens.getIn(['weekly',element_key])){
+      monthly_factor = screens.getIn(['weekly','factor']);
+    }
+    
+    let type = item_types.get(element_key);
+    waste.total_monthly += element.get('amount') * monthly_factor * type.get('weight');
+  });
+
+  waste.total_yearly = waste.total_monthly * 12;
+
+  return waste;
+}
+
 export default function calculatorReducer($$state = $$initialState, action) {
   const { calc_item_key, delta, type, new_amount } = action;
   const amount = $$state.getIn(['items', calc_item_key, 'amount']);
 
   switch (type) {
-    case REMOVE_CALC_ITEM:
-      if((amount - delta) <= 0){
-        return $$state.setIn(['items',calc_item_key, 'amount'], 0);
-      }
-      return $$state.setIn(['items',calc_item_key, 'amount'], (amount - delta));
-    case ADD_CALC_ITEM:
-      return $$state.setIn(['items',calc_item_key, 'amount'], (amount + delta));
     case SET_CALC_ITEM:
-      return $$state.setIn(['items',calc_item_key, 'amount'], new_amount);
+        let $$newState = $$state.setIn(['items',calc_item_key, 'amount'], new_amount);
+        var waste = calculateWaste($$newState.get('item_types'), $$newState.get('items'), $$newState.get('screens'));
+        return $$newState.setIn('waste', waste);
     default:
       return $$state;
   }

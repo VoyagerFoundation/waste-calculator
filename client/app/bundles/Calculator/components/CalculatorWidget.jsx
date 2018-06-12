@@ -12,24 +12,20 @@ export default class CalculatordWidget extends React.Component {
       var element = elements.get(element_key);
       if('input' == element.type){
         return(
-          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)}  />
+          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
         );
       }
       else {
         return(
-          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)}  />
+          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
         );
       }
     });
   }
 
   render() {
-    const { items, item_types, $$screens } = this.props;
-    
+    const { $$screens } = this.props;
     const weekly_elements = $$screens.getIn(['weekly','elements']);
-    console.log('weekly');
-    console.log(Array.from( weekly_elements.keys() ));
-
     const monthly_elements = $$screens.getIn(['monthly','elements']);
     
     return (
