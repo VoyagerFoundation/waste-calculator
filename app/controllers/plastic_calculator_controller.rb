@@ -107,11 +107,67 @@ class PlasticCalculatorController < ApplicationController
           recyclable: true,
           description: "description"
         },
+        wash_up_bottles: {
+          key: "wash_up_bottles",
+          name: "washing up bottles",  
+          plastic_type: "HDPE", 
+          weight: 92,
+          recyclable: true,
+          description: "description"
+        },
+        sponge: {
+          key: "sponge",
+          name: "kitchen sponge",  
+          plastic_type: "PP", 
+          weight: 32,
+          recyclable: false,
+          description: "description"
+        },
+        loundry_detergent_bottle: {
+          key: "loundry_detergent_bottle",
+          name: "loundry detergent bottle",  
+          plastic_type: "HDPE", 
+          weight: 112,
+          recyclable: true,
+          description: "description"
+        },
+        softener: {
+          key: "softener",
+          name: "loundry softener bottle",  
+          plastic_type: "HDPE", 
+          weight: 70,
+          recyclable: true,
+          description: "description"
+        },
+        cling_wrap: {
+          key: "cling_wrap",
+          name: "cling wrap (per meter)",  
+          plastic_type: "PVC", 
+          weight: 1.1,
+          recyclable: false,
+          description: "description"
+        },
+        sandwich_bags: {
+          key: "sandwich_bags",
+          name: "sandwich bags",  
+          plastic_type: "LDPE", 
+          weight: 8,
+          recyclable: false,
+          description: "description"
+        },
         bin_bags: {
           key: "bin_bags",
           name: "bin bags",  
           plastic_type: "LDPE", 
           weight: 18,
+          recyclable: false,
+          description: "description"
+        },
+        straws: {
+          key: "straws",
+          name: "straws",  
+          plastic_type: "PP", 
+          weight: 0.1,
           recyclable: false,
           description: "description"
         },
@@ -126,24 +182,29 @@ class PlasticCalculatorController < ApplicationController
             veggie_fruit_package: {key: "veggie_fruit_package", type: "input" },
             milk_bottle: {key: "milk_bottle", type: "input" },
             supermarket_bags: {key: "supermarket_bags", type: "input" },
+            wash_up_bottles: {key: "wash_up_bottles", type: "input" },
+            sponge: {key: "sponge", type: "input" },
+            cling_wrap: {key: "cling_wrap", type: "input" },
+            sandwich_bags: {key: "sandwich_bags", type: "input" },
+            bin_bags: {key: "bin_bags", type: "input" },
+            straws: {key: "straws", type: "input" },
           },
           groups: {
             food: {
               key: "food",
               name: "Food",
-              elements: ["small_bottle","large_bottle", "takeway_tubs", "veggie_fruit_package", "milk_bottle", "supermarket_bags"],
+              elements: ["small_bottle","large_bottle", "takeway_tubs", "veggie_fruit_package", "milk_bottle", "supermarket_bags", "straws"],
             },
             kitchen: {
               key: "kitchen",
               name: "Kitchen",
-              elements: [],
+              elements: ["wash_up_bottles", "sponge", "cling_wrap", "sandwich_bags","bin_bags"],
             },
           }
         }, 
         monthly: {
           factor: 1,
           elements: {
-            bin_bags: {key: "bin_bags", type: "input" },
             toothpaste: {key: "toothpaste", type: "input" },
             toothbrush: {key: "toothbrush", type: "input" },
             bleach: {key: "bleach", type: "input" },
@@ -151,12 +212,14 @@ class PlasticCalculatorController < ApplicationController
             shower_gel: {key: "shower_gel", type: "input" },
             soap_bottle: {key: "soap_bottle", type: "input" },
             shampoo: {key: "shampoo", type: "input" },
+            loundry_detergent_bottle: {key: "loundry_detergent_bottle", type: "input" },
+            softener: {key: "softener", type: "input" },
           },
           groups: {
             kitchen: {
               key: "kitchen",
               name: "Kitchen",
-              elements: ["bin_bags"],
+              elements: ["loundry_detergent_bottle","softener"],
             },
             bathroom: {
               key: "bathroom",
