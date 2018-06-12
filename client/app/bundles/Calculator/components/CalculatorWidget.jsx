@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
-import  { Component } from 'react';
+import React from 'react';
 import CalcElement from '../containers/CalcElement';
+import CalcResultsWidget from '../components/CalcResultsWidget';
 
-export default class CalculatordWidget extends React.Component {
+export default class CalculatorWidget extends React.Component {
   
   renderElements(elements){ 
-    const { items, item_types, $$screens } = this.props;
+    const { items, item_types } = this.props;
     const items_keys = Array.from( elements.keys() );
     
     return _.map(items_keys, element_key => {
@@ -24,22 +24,27 @@ export default class CalculatordWidget extends React.Component {
   }
 
   render() {
-    const { $$screens } = this.props;
+    const { $$screens , waste } = this.props;
     const weekly_elements = $$screens.getIn(['weekly','elements']);
     const monthly_elements = $$screens.getIn(['monthly','elements']);
-    
+
     return (
       <div className="container">
-        <h3>
-          Plastic Calculator Weekly
-        </h3>
-        <hr />
-        {this.renderElements(weekly_elements)}
-        <h3>
-          Plastic Calculator Monthly
-        </h3>
-        <hr />
-        {this.renderElements(monthly_elements)}
+        <div>
+          <h3>
+            Plastic Calculator Weekly
+          </h3>
+          <hr />
+          {this.renderElements(weekly_elements)}
+          <h3>
+            Plastic Calculator Monthly
+          </h3>
+          <hr />
+          {this.renderElements(monthly_elements)}
+        </div>
+        <div>
+          <CalcResultsWidget waste={waste} />
+        </div>
       </div>
     );
   }

@@ -19,7 +19,6 @@ export default props => {
   _.map(item_types, (item_type) => {
     initial_items[item_type.key]= { amount: 0, key: (item_type.key) };
   });
-
   // Redux expects to initialize tHelloWorld store using an Object, not an Immutable.Map
   const initialState = {
     $$calculatorStore: $$calculatorState.merge({
