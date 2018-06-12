@@ -29,16 +29,22 @@ export default class CalcElementWidget extends React.Component {
     var element_name  = item_type.get('name');
     
     return (
-            <div className="row" key={key}>
-              {element_name}
-              <button onClick={this.removeItem.bind(this)}>
-                Remove 
-              </button>
-              <text>{item.get('amount')}</text>
-              <button onClick={this.addItem.bind(this)}>
-                Add 
-              </button>
-            </div>
-        );
+      <tr key={key}>
+        <td>{element_name}</td>
+        <td>
+          <button onClick={this.removeItem.bind(this)} className="btn btn-outline-success">
+            Remove 
+          </button>
+        </td>
+        <td>
+          {item.get('amount')}
+        </td>
+        <td>
+          <button onClick={this.addItem.bind(this)} className="btn btn-outline-warning">
+            Add 
+          </button>
+        </td>
+      </tr>
+    );
   }
 }

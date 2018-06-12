@@ -38,13 +38,14 @@ export default class CalculatorWidget extends React.Component {
 
     if(group_element_keys.length > 0){
       return(  
-        <div> 
-          <div>{group_name}:</div>
-          <div key={group_name}>
-            {this.renderGroupElements(elements,group_element_keys)}
-          </div>
-          <div><br/></div> 
-        </div>
+        <table className="table table-hover" key={`${group_key}_${period}`}>
+          <thead>
+            <tr><th colSpan="5">{group_name}</th></tr> 
+          </thead>
+          <tbody>
+          {this.renderGroupElements(elements,group_element_keys)}
+          </tbody> 
+        </table> 
       );
     }
   }
@@ -61,27 +62,20 @@ export default class CalculatorWidget extends React.Component {
   render() {
     const { waste } = this.props;
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col">
-            <div className="container">
-              <div className="row">
-                <h3>
-                  Weekly
-                </h3>
-              </div>
-              <div className="row">{this.renderElements('weekly')}</div>
-            </div>
-            
-            <h3>
-              Monthly
-            </h3>
-            <hr />
-            {this.renderElements('monthly')}
+      <div className="container">
+        <div className="col-8">
+          <div className="row">
+              <h3>Weekly</h3>
+              {this.renderElements('weekly')}
           </div>
-          <div className="col">
-            <CalcResultsWidget waste={waste} />
+
+          <div className="row">
+              <h3>Monthly</h3>
+              {this.renderElements('monthly')}
           </div>
+        </div>
+        <div className="col-4">
+          <CalcResultsWidget waste={waste} />
         </div>
       </div>
     );

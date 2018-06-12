@@ -5,14 +5,13 @@ export default class CalcElementWidget extends React.Component {
     const { total_monthly, total_yearly } = this.props.waste;
 
     return (
-      <div className="container">
-        <hr />
-        <h3>
-          Monthly waste: {total_monthly}
-        </h3>
-        <h3>
-          Yearly waste: {total_yearly}
-        </h3>
+      <div>
+        <div className="row">
+          <h3>Monthly waste: {total_monthly} g</h3>
+        </div>
+        <div className="row">
+          <h3>Yearly waste: {total_yearly} g</h3>
+        </div>
       </div>
     );
   }
