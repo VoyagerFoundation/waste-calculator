@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import  { Component } from 'react';
 
 export default class CalcElementWidget extends React.Component {
   static propTypes = {
@@ -31,12 +30,13 @@ export default class CalcElementWidget extends React.Component {
     
     return (
             <div className="row" key={key}>
+              {element_name}
               <button onClick={this.removeItem.bind(this)}>
-                Remove {element_name}
+                Remove 
               </button>
               <text>{item.get('amount')}</text>
               <button onClick={this.addItem.bind(this)}>
-                Add {element_name}
+                Add 
               </button>
             </div>
         );
