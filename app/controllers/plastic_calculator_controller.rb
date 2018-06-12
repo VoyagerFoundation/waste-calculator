@@ -4,35 +4,60 @@ class PlasticCalculatorController < ApplicationController
       item_types: {
         small_bottle: {
           key: "small_bottle",
-          name: "small bottle",
-          size: "1mm",  
+          name: "Drinks bottles (soft drinks 500ml)",
+          size: "500ml",  
           plastic_type: "PET", 
-          weight: 100,
-          description: "small bottle description"
+          weight: 19,
+          recyclable: true,
+          description: "description"
         },
-        big_bottle: {
-          key: "big_bottle",
-          name: "big bottle",
-          size: "1mm",  
+        large_bottle: {
+          key: "large_bottle",
+          name: "large water bottle", 
           plastic_type: "PET", 
-          weight: 100,
-          description: "big bottle description"
+          weight: 41,
+          recyclable: true,
+          description: "description"
         },
-        coffee_cup: {
-          key: "coffee_cup",
-          name: "coffee cup",
-          size: "1mm",  
-          plastic_type: "PET", 
-          weight: 100,
-          description: "coffe cup with plastic cover"
+        takeway_tubs: {
+          key: "takeway_tubs",
+          name: "takeway tubs", 
+          plastic_type: "HDPE", 
+          weight: 40,
+          recyclable: true,
+          description: "description"
+        },
+        veggie_fruit_package: {
+          key: "veggie_fruit_package",
+          name: "Veggie or fruit package",  
+          plastic_type: "PVC", 
+          weight: 25,
+          recyclable: false,
+          description: "description"
+        },
+        milk_bottle: {
+          key: "milk_bottle",
+          name: "milk bottle",
+          plastic_type: "HDPE", 
+          weight: 40,
+          recyclable: true,
+          description: "description"
+        },
+        supermarket_bags: {
+          key: "supermarket_bags",
+          name: "supermarket bag",
+          plastic_type: "LDPE", 
+          weight: 35,
+          recyclable: false,
+          description: "description"
         },
         bin_bags: {
           key: "bin_bags",
-          name: "bin bahs",
-          size: "1mm",  
-          plastic_type: "PET", 
-          weight: 100,
-          description: "big bin bags"
+          name: "bin bahs",  
+          plastic_type: "LDPE", 
+          weight: 18,
+          recyclable: false,
+          description: "description"
         }
       },
       screens: {
@@ -40,14 +65,25 @@ class PlasticCalculatorController < ApplicationController
           factor: 4,
           elements: {
             small_bottle: {key: "small_bottle", type: "input"}, 
-            big_bottle: {key: "big_bottle", type: "input" },
-            coffee_cup: {key: "big_bottle", type: "input" }
+            large_bottle: {key: "large_bottle", type: "input" },
+            takeway_tubs: {key: "takeway_tubs", type: "input" },
+            veggie_fruit_package: {key: "veggie_fruit_package", type: "input" },
+            milk_bottle: {key: "milk_bottle", type: "input" },
+            supermarket_bags: {key: "supermarket_bags", type: "input" },
+          },
+          groups: {
+            food: ["small_bottle","large_bottle", "takeway_tubs", "veggie_fruit_package", "milk_bottle", "supermarket_bags"],
+            kitchen: [],
           }
         }, 
         monthly: {
           factor: 1,
           elements: {
             bin_bags: {key: "bin_bags", type: "input" }
+          },
+          groups: {
+            kitchen: [],
+            bathroom: []
           }
         }
       } 
