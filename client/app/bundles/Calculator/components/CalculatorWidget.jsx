@@ -4,43 +4,74 @@ import CalcResultsWidget from '../components/CalcResultsWidget';
 
 export default class CalculatorWidget extends React.Component {
   
-  renderElements(elements){ 
+  renderElement(element, element_key){
     const { items, item_types } = this.props;
-    const items_keys = Array.from( elements.keys() );
-    
-    return _.map(items_keys, element_key => {
+
+    if('input' == element.type){
+      return(
+        <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
+      );
+    }
+    else {
+      return(
+        <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
+      );
+    }
+  }
+
+  renderGroupElements(elements, group_element_keys){
+    return _.map(group_element_keys, element_key => {
       var element = elements.get(element_key);
-      if('input' == element.type){
-        return(
-          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
-        );
-      }
-      else {
-        return(
-          <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
-        );
-      }
+      return(this.renderElement(element, element_key));
+    });
+  }
+
+  renderGroup(group_key, period){
+    const { $$screens } = this.props;
+    const group  = $$screens.getIn([period,'groups',group_key]);
+    const elements = $$screens.getIn([period,'elements']);
+    if(_.keys(elements).length <= 0 ) return;
+ 
+    var group_element_keys = Array.from(group.get('elements'));
+    var group_key = group.get('key');
+    var group_name = group.get('name');
+
+    if(group_element_keys.length > 0){
+      return(
+        <div> 
+          <div>{group_name}</div>
+          <div key={group_name}>
+            {this.renderGroupElements(elements,group_element_keys)}
+          </div>
+        </div>   
+      );
+    }
+  }
+
+  renderElements(period){ 
+    const { $$screens } = this.props;
+    const group_keys = Array.from($$screens.getIn([period,'groups']).keys());
+
+    return _.map(group_keys, group_key => {
+      return this.renderGroup(group_key, period);
     });
   }
 
   render() {
-    const { $$screens , waste } = this.props;
-    const weekly_elements = $$screens.getIn(['weekly','elements']);
-    const monthly_elements = $$screens.getIn(['monthly','elements']);
-
+    const { waste } = this.props;
     return (
       <div className="container">
         <div>
           <h3>
-            Plastic Calculator Weekly
+            Weekly
           </h3>
           <hr />
-          {this.renderElements(weekly_elements)}
+          {this.renderElements('weekly')}
           <h3>
-            Plastic Calculator Monthly
+            Monthly
           </h3>
           <hr />
-          {this.renderElements(monthly_elements)}
+          {this.renderElements('monthly')}
         </div>
         <div>
           <CalcResultsWidget waste={waste} />

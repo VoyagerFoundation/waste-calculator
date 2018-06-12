@@ -72,8 +72,16 @@ class PlasticCalculatorController < ApplicationController
             supermarket_bags: {key: "supermarket_bags", type: "input" },
           },
           groups: {
-            food: ["small_bottle","large_bottle", "takeway_tubs", "veggie_fruit_package", "milk_bottle", "supermarket_bags"],
-            kitchen: [],
+            food: {
+              key: "food",
+              name: "Food",
+              elements: ["small_bottle","large_bottle", "takeway_tubs", "veggie_fruit_package", "milk_bottle", "supermarket_bags"],
+            },
+            kitchen: {
+              key: "kitchen",
+              name: "Kitchen",
+              elements: [],
+            },
           }
         }, 
         monthly: {
@@ -82,8 +90,16 @@ class PlasticCalculatorController < ApplicationController
             bin_bags: {key: "bin_bags", type: "input" }
           },
           groups: {
-            kitchen: [],
-            bathroom: []
+            kitchen: {
+              key: "kitchen",
+              name: "Kitchen",
+              elements: ["bin_bags"],
+            },
+            bathroom: {
+              key: "bathroom",
+              name: "Bathroom",
+              elements: [],
+            }
           }
         }
       } 
