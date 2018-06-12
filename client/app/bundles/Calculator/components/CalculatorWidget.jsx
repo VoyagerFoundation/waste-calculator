@@ -61,21 +61,27 @@ export default class CalculatorWidget extends React.Component {
   render() {
     const { waste } = this.props;
     return (
-      <div className="container">
-        <div>
-          <h3>
-            Weekly
-          </h3>
-          <hr />
-          {this.renderElements('weekly')}
-          <h3>
-            Monthly
-          </h3>
-          <hr />
-          {this.renderElements('monthly')}
-        </div>
-        <div>
-          <CalcResultsWidget waste={waste} />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col">
+            <div className="container">
+              <div className="row">
+                <h3>
+                  Weekly
+                </h3>
+              </div>
+              <div className="row">{this.renderElements('weekly')}</div>
+            </div>
+            
+            <h3>
+              Monthly
+            </h3>
+            <hr />
+            {this.renderElements('monthly')}
+          </div>
+          <div className="col">
+            <CalcResultsWidget waste={waste} />
+          </div>
         </div>
       </div>
     );
