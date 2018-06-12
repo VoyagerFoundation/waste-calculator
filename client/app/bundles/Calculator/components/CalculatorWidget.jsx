@@ -31,19 +31,20 @@ export default class CalculatorWidget extends React.Component {
     const group  = $$screens.getIn([period,'groups',group_key]);
     const elements = $$screens.getIn([period,'elements']);
     if(_.keys(elements).length <= 0 ) return;
- 
+    
     var group_element_keys = Array.from(group.get('elements'));
     var group_key = group.get('key');
     var group_name = group.get('name');
 
     if(group_element_keys.length > 0){
-      return(
+      return(  
         <div> 
-          <div>{group_name}</div>
+          <div>{group_name}:</div>
           <div key={group_name}>
             {this.renderGroupElements(elements,group_element_keys)}
           </div>
-        </div>   
+          <div><br/></div> 
+        </div>
       );
     }
   }

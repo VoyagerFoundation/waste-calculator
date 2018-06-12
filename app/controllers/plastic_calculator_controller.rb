@@ -51,14 +51,70 @@ class PlasticCalculatorController < ApplicationController
           recyclable: false,
           description: "description"
         },
+        toothpaste: {
+          key: "toothpaste",
+          name: "tooth paste",  
+          plastic_type: "LDPE", 
+          weight: 65,
+          recyclable: false,
+          description: "description"
+        },
+        toothbrush: {
+          key: "toothbrush",
+          name: "tooth brush",  
+          plastic_type: "PP", 
+          weight: 17.5,
+          recyclable: false,
+          description: "description"
+        },
+        bleach: {
+          key: "bleach",
+          name: "bleach",  
+          plastic_type: "HDPE", 
+          weight: 112,
+          recyclable: true,
+          description: "description"
+        },
+        cleaning_spray: {
+          key: "cleaning_spray",
+          name: "cleaning spray",  
+          plastic_type: "HDPE", 
+          weight: 58,
+          recyclable: true,
+          description: "description"
+        },
+        shower_gel: {
+          key: "shower_gel",
+          name: "shower gel",  
+          plastic_type: "HDPE", 
+          weight: 40,
+          recyclable: true,
+          description: "description"
+        },
+        soap_bottle: {
+          key: "soap_bottle",
+          name: "soap bottle",  
+          plastic_type: "HDPE", 
+          weight: 40,
+          recyclable: true,
+          description: "description"
+        },
+        shampoo: {
+          key: "shampoo",
+          name: "shampoo",  
+          plastic_type: "HDPE", 
+          weight: 40,
+          recyclable: true,
+          description: "description"
+        },
         bin_bags: {
           key: "bin_bags",
-          name: "bin bahs",  
+          name: "bin bags",  
           plastic_type: "LDPE", 
           weight: 18,
           recyclable: false,
           description: "description"
-        }
+        },
       },
       screens: {
         weekly: {
@@ -87,7 +143,14 @@ class PlasticCalculatorController < ApplicationController
         monthly: {
           factor: 1,
           elements: {
-            bin_bags: {key: "bin_bags", type: "input" }
+            bin_bags: {key: "bin_bags", type: "input" },
+            toothpaste: {key: "toothpaste", type: "input" },
+            toothbrush: {key: "toothbrush", type: "input" },
+            bleach: {key: "bleach", type: "input" },
+            cleaning_spray: {key: "cleaning_spray", type: "input" },
+            shower_gel: {key: "shower_gel", type: "input" },
+            soap_bottle: {key: "soap_bottle", type: "input" },
+            shampoo: {key: "shampoo", type: "input" },
           },
           groups: {
             kitchen: {
@@ -98,7 +161,7 @@ class PlasticCalculatorController < ApplicationController
             bathroom: {
               key: "bathroom",
               name: "Bathroom",
-              elements: [],
+              elements: ["toothpaste", "toothbrush", "bleach", "cleaning_spray", "shower_gel", "soap_bottle", "shampoo"],
             }
           }
         }
