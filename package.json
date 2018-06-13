@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "engines": {
     "node": "10.3.0",
-    "npm": "6.1.0"
+    "npm": "6.1.0",
+    "yarn": ">= 0.25.2"
   },
   "scripts": {
     "postinstall": "cd client && npm install",
