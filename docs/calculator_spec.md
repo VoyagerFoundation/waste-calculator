@@ -25,12 +25,15 @@ We also will know how much each item will:
 - what type of plastic is made of ( how long it dissolves and is it harmful )
 - is it recyclable
 
-Calculation: 
+#### Calculation: 
+
 We want to show calculations like: 
 - How much g or kg ( or count ) of plastic you create a month, year, 10 years on in a lifetime
 - How much of it can be reusable and how much of it potentially will
 - How does it feel / impact ( visualise ?? )
 - How much of this is harmful?   
+
+It would be good to maybe compare numbers to something visually ...
 
 
 #### Areas for education: 
