@@ -9,7 +9,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PET", 
           weight: 19,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         large_bottle: {
           key: "large_bottle",
@@ -17,7 +18,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PET", 
           weight: 41,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         takeway_tubs: {
           key: "takeway_tubs",
@@ -25,7 +27,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 40,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         veggie_fruit_package: {
           key: "veggie_fruit_package",
@@ -33,7 +36,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PVC", 
           weight: 25,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         milk_bottle: {
           key: "milk_bottle",
@@ -41,7 +45,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 40,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         supermarket_bags: {
           key: "supermarket_bags",
@@ -49,7 +54,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "LDPE", 
           weight: 35,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         toothpaste: {
           key: "toothpaste",
@@ -57,7 +63,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "LDPE", 
           weight: 65,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         toothbrush: {
           key: "toothbrush",
@@ -65,7 +72,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PP", 
           weight: 17.5,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         bleach: {
           key: "bleach",
@@ -73,7 +81,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 112,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         cleaning_spray: {
           key: "cleaning_spray",
@@ -81,7 +90,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 58,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         shower_gel: {
           key: "shower_gel",
@@ -89,7 +99,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 40,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         soap_bottle: {
           key: "soap_bottle",
@@ -97,7 +108,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 40,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         shampoo: {
           key: "shampoo",
@@ -105,7 +117,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 40,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         wash_up_bottles: {
           key: "wash_up_bottles",
@@ -113,7 +126,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 92,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         sponge: {
           key: "sponge",
@@ -121,7 +135,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PP", 
           weight: 32,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         loundry_detergent_bottle: {
           key: "loundry_detergent_bottle",
@@ -129,7 +144,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 112,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         softener: {
           key: "softener",
@@ -137,7 +153,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "HDPE", 
           weight: 70,
           recyclable: true,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         cling_wrap: {
           key: "cling_wrap",
@@ -145,7 +162,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PVC", 
           weight: 1.1,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         sandwich_bags: {
           key: "sandwich_bags",
@@ -153,7 +171,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "LDPE", 
           weight: 8,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         bin_bags: {
           key: "bin_bags",
@@ -161,7 +180,8 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "LDPE", 
           weight: 18,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
         straws: {
           key: "straws",
@@ -169,26 +189,13 @@ class PlasticCalculatorController < ApplicationController
           plastic_type: "PP", 
           weight: 0.1,
           recyclable: false,
-          description: "description"
+          description: "description",
+          type: "input"
         },
       },
       screens: {
         weekly: {
           factor: 4,
-          elements: {
-            small_bottle: {key: "small_bottle", type: "input"}, 
-            large_bottle: {key: "large_bottle", type: "input" },
-            takeway_tubs: {key: "takeway_tubs", type: "input" },
-            veggie_fruit_package: {key: "veggie_fruit_package", type: "input" },
-            milk_bottle: {key: "milk_bottle", type: "input" },
-            supermarket_bags: {key: "supermarket_bags", type: "input" },
-            wash_up_bottles: {key: "wash_up_bottles", type: "input" },
-            sponge: {key: "sponge", type: "input" },
-            cling_wrap: {key: "cling_wrap", type: "input" },
-            sandwich_bags: {key: "sandwich_bags", type: "input" },
-            bin_bags: {key: "bin_bags", type: "input" },
-            straws: {key: "straws", type: "input" },
-          },
           groups: {
             food: {
               key: "food",
@@ -204,17 +211,6 @@ class PlasticCalculatorController < ApplicationController
         }, 
         monthly: {
           factor: 1,
-          elements: {
-            toothpaste: {key: "toothpaste", type: "input" },
-            toothbrush: {key: "toothbrush", type: "input" },
-            bleach: {key: "bleach", type: "input" },
-            cleaning_spray: {key: "cleaning_spray", type: "input" },
-            shower_gel: {key: "shower_gel", type: "input" },
-            soap_bottle: {key: "soap_bottle", type: "input" },
-            shampoo: {key: "shampoo", type: "input" },
-            loundry_detergent_bottle: {key: "loundry_detergent_bottle", type: "input" },
-            softener: {key: "softener", type: "input" },
-          },
           groups: {
             kitchen: {
               key: "kitchen",

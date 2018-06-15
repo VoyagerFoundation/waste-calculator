@@ -4,34 +4,33 @@ import CalcResultsWidget from '../components/CalcResultsWidget';
 
 export default class CalculatorWidget extends React.Component {
   
-  renderElement(element, element_key){
+  renderElement(element_key){
     const { items, item_types } = this.props;
 
-    if('input' == element.type){
+    var item = items.get(element_key);
+
+    if('input' == item.type){
       return(
-        <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
+        <CalcElement item={item} item_type={item_types.get(element_key)} key={element_key} />
       );
     }
     else {
       return(
-        <CalcElement item={items.get(element_key)} item_type={item_types.get(element_key)} key={element_key} />
+        <CalcElement item={item} item_type={item_types.get(element_key)} key={element_key} />
       );
     }
   }
 
-  renderGroupElements(elements, group_element_keys){
+  renderGroupElements(group_element_keys){
     return _.map(group_element_keys, element_key => {
-      var element = elements.get(element_key);
-      return(this.renderElement(element, element_key));
+      return(this.renderElement(element_key));
     });
   }
 
   renderGroup(group_key, period){
     const { $$screens } = this.props;
     const group  = $$screens.getIn([period,'groups',group_key]);
-    const elements = $$screens.getIn([period,'elements']);
-    if(_.keys(elements).length <= 0 ) return;
-    
+ 
     var group_element_keys = Array.from(group.get('elements'));
     var group_key = group.get('key');
     var group_name = group.get('name');
@@ -43,7 +42,7 @@ export default class CalculatorWidget extends React.Component {
             <tr><th colSpan="5">{group_name}</th></tr> 
           </thead>
           <tbody>
-          {this.renderGroupElements(elements,group_element_keys)}
+          {this.renderGroupElements(group_element_keys)}
           </tbody> 
         </table> 
       );
