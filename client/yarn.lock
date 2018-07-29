@@ -2734,9 +2734,9 @@ rc@^1.2.7:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-on-rails@^11.0.8:
-  version "11.0.10"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.0.10.tgz#91b62cfe317807b1bc550ad9c5b53402c23fcc51"
+react-on-rails@11.0.8:
+  version "11.0.8"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.0.8.tgz#b3912b9a93ed14ea85fadecb79e25a796e77d1db"
 
 react-redux@^4.4.9:
   version "4.4.9"
