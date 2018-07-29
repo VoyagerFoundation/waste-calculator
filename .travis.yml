@@ -30,10 +30,6 @@ cache:
   directories:
     - node_modules # NPM packages
   yarn: true
-
-gemfile:
-  - spec/dummy/Gemfile
-  - spec/dummy_no_webpacker/Gemfile.rails32
 env:
   global:
     - RAILS_ENV=test
