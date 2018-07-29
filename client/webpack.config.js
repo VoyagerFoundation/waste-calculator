@@ -36,7 +36,7 @@ const config = {
     loaders: [
       {
         test: require.resolve('react'),
-        loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
+        loader: 'imports-loader?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
       },
       {
         test: /\.jsx?$/,
