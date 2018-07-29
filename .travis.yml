@@ -19,8 +19,10 @@ install:
   - travis_retry npm i -g yarn
   - travis_retry yarn global add babel-cli
   - travis_retry bundle install
+  - cd client
   - travis_retry yarn
   - travis_retry yarn run build
+  - cd ..
   - bundle exec rake prepare_for_ci
 node_js:
   - "10.3"
