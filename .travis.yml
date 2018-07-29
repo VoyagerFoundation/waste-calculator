@@ -7,4 +7,6 @@ before_script:
 install: 
   - bundle install
   - npm install
+node_js:
+  - "10.3"
 
