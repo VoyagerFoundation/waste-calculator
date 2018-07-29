@@ -15,7 +15,7 @@ const config = {
 
   output: {
     filename: 'server-bundle.js',
-    path: '../app/assets/webpack',
+    path: 'app/assets/webpack',
   },
 
   resolve: {
