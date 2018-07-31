@@ -1,15 +1,10 @@
-<div class="container">
-  <!-- Content here -->
-  <div class="fact">
-    <h3>What is plastic?</h3>
-    Plastic is a synthetic material made from repeating units of carbon compounds called polymers which are made of monomers. The chains of monomers can be arranged in different ways creating different types of plastics. 
-  </div>
-</div>
-<div class="container">
-  <div class="fact">
-    <h3>What is used to make it?</h3>
-    Traditionally we use oil but we can get the same effect from renewable sources. However the structure of the plastics are the same so although we can create more, getting rid of them is still a major problem. 
-    About 4 percent of the world’s petroleum is used to make plastic, and another 4 percent is used to power plastic manufacturing processes
-  </div>
 
-</div>
+  <!-- Content here -->
+  <% @facts.each do |fact| %>
+  <div class="container">
+    <div class="fact">
+      <h3><%= fact.title %></h3>
+      <%= fact.description.html_safe %>
+    </div>
+  </div>
+  <% end %>
