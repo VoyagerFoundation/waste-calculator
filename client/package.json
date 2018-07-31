@@ -32,7 +32,7 @@
     "mirror-creator": "1.1.0",
     "react": "^15.6.2",
     "react-dom": "^0.14.8 || ^15.0.0",
-    "react-on-rails": "11.0.8",
+    "react-on-rails": "11.0.10",
     "react-redux": "^4.4.9",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
