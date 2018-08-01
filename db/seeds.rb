@@ -1,5 +1,5 @@
 AdminUser.create!([
-  {email: "admin@example.com", encrypted_password: "$2a$11$INX9wEHOmLoiBSPK2w67Y.yvbFJZJayoe/Znbcb0GAc09s5gTZO6W", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2018-07-31 08:07:25", last_sign_in_at: "2018-07-31 08:07:25", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
+  {email: "admin@example.com", password:'password'}
 ])
 Fact.create!([
   {title: "What is plastic?", category: "plastic", description: "Plastic is a synthetic material made from repeating units of carbon compounds called polymers which are made of monomers. The chains of monomers can be arranged in different ways creating different types of plastics. "},
