@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_04_103119) do
+ActiveRecord::Schema.define(version: 2018_08_04_135240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,10 +60,12 @@ ActiveRecord::Schema.define(version: 2018_08_04_103119) do
     t.decimal "weight_gram"
     t.boolean "recyclable"
     t.string "description"
-    t.string "type"
     t.string "plastic_type"
+    t.string "default_calc_mode"
+    t.bigint "waste_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["waste_group_id"], name: "index_plastic_items_on_waste_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,6 +83,12 @@ ActiveRecord::Schema.define(version: 2018_08_04_103119) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "waste_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

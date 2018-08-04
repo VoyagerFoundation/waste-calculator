@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  name: MyString
+  weight_gram: 
+  recyclable: false
+  description: MyString
+  type: 
+
+two:
+  key: MyString
+  name: MyString
+  weight_gram: 
+  recyclable: false
+  description: MyString
+  type: 
