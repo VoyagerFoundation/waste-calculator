@@ -1,5 +1,11 @@
 class PlasticCalculatorController < ApplicationController
+  def random_fact
+    ids = Fact.pluck(:id)
+    Fact.find(ids.sample)
+  end
+  
   def calculator
+    @fact = random_fact
     @calculator_props = { 
       item_types: {
         small_bottle: {
