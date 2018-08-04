@@ -1,5 +1,5 @@
 AdminUser.create!([
-  {email: "admin@example.com", password:'password'}
+  {email: "admin@example.com", password:'Password'}
 ])
 Fact.create!([
   {title: "What is plastic?", category: "plastic", description: "Plastic is a synthetic material made from repeating units of carbon compounds called polymers which are made of monomers. The chains of monomers can be arranged in different ways creating different types of plastics. "},
