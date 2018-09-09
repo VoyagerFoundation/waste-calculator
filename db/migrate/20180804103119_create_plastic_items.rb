@@ -1,7 +1,6 @@
 class CreatePlasticItems < ActiveRecord::Migration[5.2]
   def change
     create_table :plastic_items do |t|
-      t.string :key
       t.string :name
       t.numeric :weight_gram
       t.boolean :recyclable
