@@ -5,3 +5,15 @@
 .container {
   display: flex; /* or inline-flex */
 }
+
+.calculator {
+  margin-top: 20px; 
+  font-family: Lato; 
+}
+
+.disclaimer {
+  font-size: 0.5 em;
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

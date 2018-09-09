@@ -12,6 +12,6 @@
     "test": "rspec"
   },
   "dependencies": {
-    "react-on-rails": "11.0.10"
+    "react-on-rails": "11.1.3"
   }
 }
