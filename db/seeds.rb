@@ -1,9 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
+AdminUser.create!([
+  {email: "admin@example.com", password:'Password'}
+])
+Fact.create!([
+  {title: "What is plastic?", category: "plastic", description: "Plastic is a synthetic material made from repeating units of carbon compounds called polymers which are made of monomers. The chains of monomers can be arranged in different ways creating different types of plastics. "},
+  {title: "What is used to make it?", category: "plastic", description: "<p>Traditionally we use oil but we can get the same effect from renewable sources. However the structure of the plastics are the same so although we can create more, getting rid of them is still a major problem.&nbsp;</p><p dir=\"ltr\">About 4 percent of the world&rsquo;s petroleum is used to make plastic, and another 4 percent is used to power plastic manufacturing processes</p>"},
+  {title: "Types of Plastics?", category: "plastic", description: "<p>We class each plastic under certain codes although there can be differences within these &ldquo;family&rdquo; types creating polymers of differing strengths and qualities.</p><table><tbody><tr><td><p dir=\"ltr\">Code</p></td><td><p dir=\"ltr\">Name</p></td><td><p dir=\"ltr\">Biodegradable?</p></td></tr><tr><td><p dir=\"ltr\">PET</p></td><td><p dir=\"ltr\">Polyethylene Terephthalate</p></td><td><p dir=\"ltr\">No</p></td></tr><tr><td><p dir=\"ltr\">HDPE</p></td><td><p dir=\"ltr\">High Density Polyethylene</p></td><td><p dir=\"ltr\">500 Years</p></td></tr><tr><td><p dir=\"ltr\">PVC</p></td><td><p dir=\"ltr\">Polyvinyl Chloride</p></td><td><p dir=\"ltr\">500 Years</p></td></tr><tr><td><p dir=\"ltr\">LDPE</p></td><td><p dir=\"ltr\">Low Density Polyethylene</p></td><td><p dir=\"ltr\">500 Years</p></td></tr><tr><td><p dir=\"ltr\">PP</p></td><td><p dir=\"ltr\">Polypropylene</p></td><td><p dir=\"ltr\">No</p></td></tr><tr><td><p dir=\"ltr\">PS</p></td><td><p dir=\"ltr\">Polystyrene</p></td><td><p dir=\"ltr\">No</p></td></tr><tr><td><p dir=\"ltr\">OTHER</p></td><td><br></td><td><br></td></tr></tbody></table><p data-empty=\"true\"><br></p><p><br></p>"},
+  {title: "Why do we use them?", category: "plastic", description: "<p>Plastics have a high strength to weight ratio and is moldable to nearly any form. Plastics are also chemically inert meaning that they do not react to chemicals, like soaps, bleaches, cleaning products. This also makes them very difficult to biodegrade.&nbsp;</p>"},
+  {title: "What's the difference between biodegradation and photodegradation?", category: "plastic", description: "<p>Biodegradation is the process in which dirt and the bacteria in dirt can break down a substance.&nbsp;</p><p dir=\"ltr\">Photodegradation is the process in which sunlight causes substances to weather and break down. Plastics typically photodegrade quicker than they biodegrade, however this causes microplastics to be released, often into water, either in our oceans or rivers. Most trash is buried and thus we should concern ourselves with both types of degradation.</p>"}
+])
