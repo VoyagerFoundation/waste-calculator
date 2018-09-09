@@ -1,6 +1,9 @@
-<div class="container">
-  <div class="fact">
+<div class="container cheet-sheet">
+  <div class="fact row-fluid" >
+    <div class="cs-small-title"> Random Fact from Plastic Cheet Sheet </div>
     <h3><%= @fact.title %></h3>
-    <%= @fact.description.html_safe %>
+    <div class="fact-content">
+        <%= @fact.description.html_safe %>
+    </div>
   </div>
 </div>
