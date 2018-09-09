@@ -24,13 +24,20 @@ export default class CalcElementWidget extends React.Component {
     this.props.setItemAmount(key, new_val);
   }
 
+  deduct_image(amount){
+    if(amount > 0){
+      return '/assets/images/deduct_button.png';
+    }
+    return '/assets/images/deduct_disabled_button.png'
+  }
+
   render() {
     const { item, amount } = this.props;
     return (
       <tr key={item.id} id={item.id} >
         <td>{item.name}</td>
         <td className="button-cell">
-          <img src='/assets/images/deduct_button.png' onClick={this.removeItem.bind(this)} />     
+          <img src={this.deduct_image(amount)} onClick={this.removeItem.bind(this)} />     
         </td>
         <td className="amount">
           {amount}
