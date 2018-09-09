@@ -4,6 +4,10 @@
     <h3><%= @fact.title %></h3>
     <div class="fact-content">
         <%= @fact.description.html_safe %>
+        
+        <div class='cs-link-fact'>
+          <%= link_to "Cheat Sheet", cheat_sheet_path  %>
+        </div>
     </div>
   </div>
 </div>

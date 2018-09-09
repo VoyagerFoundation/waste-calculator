@@ -4,6 +4,17 @@
 
 .cheet-sheet {
   font-family: Lato; 
+  margin: 10px;
+
+  .cs-link-fact {
+    width: 100%;
+    text-align: right;
+
+    a { 
+      color: white;
+      font-style: italic;
+    }
+  }
 }
 
 .fact {
@@ -30,3 +41,24 @@
 .fact-content {
   padding: 10px;
 }
+
+.add-plastic-element {
+  width: 30px;
+  height: 30px;
+  background-image: url('/assets/images/add_button.png');
+}
+
+.amount {
+  vertical-align: auto;
+  text-align: center;
+  width: 50px;
+}
+
+.button-cell {
+  width: 35px;
+}
+
+.calc-table td {
+  vertical-align: middle !important;
+}
+
