@@ -14,7 +14,7 @@ form do |f|
     f.input :name
     f.input :description
     f.input :weight_gram, label: 'Weight (g)'
-    f.input :plastic_type, :as => :radio, :collection => ['PET','HDPE','PVC','LDPE']
+    f.input :plastic_type, :as => :radio, :collection => ['PET','HDPE','PVC','LDPE', 'PP']
     f.input :recyclable, label: 'Recyclable'
     f.input :default_calc_mode, :as => :radio, :collection => ['weekly', 'monthly']
     f.input :waste_group_id, :label => 'Group', :as => :radio, :collection => WasteGroup.all
