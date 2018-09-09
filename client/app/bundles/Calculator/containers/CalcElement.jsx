@@ -10,21 +10,22 @@ function select(state) {
 }
 
 const CalcElement = (props) => {
-  const { dispatch, item, item_type } = props;
+  const { dispatch, item, amount } = props;
   const actions = bindActionCreators(calculatorActionCreators, dispatch);
   const { setItemAmount } = actions;
+
   return (
     <CalcElementWidget {...{ 
       setItemAmount, 
       item: item, 
-      item_type: item_type
+      amount 
     }} />
   );
 };
 
 CalcElement.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  item_type: PropTypes.instanceOf(Immutable.Map).isRequired
+  item: PropTypes.object
 };
 
 export default connect(select)(CalcElement);

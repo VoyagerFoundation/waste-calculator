@@ -1,0 +1,10 @@
+
+  <!-- Content here -->
+  <% @facts.each do |fact| %>
+  <div class="container">
+    <div class="fact">
+      <h3><%= fact.title %></h3>
+      <%= fact.description.html_safe %>
+    </div>
+  </div>
+  <% end %>
