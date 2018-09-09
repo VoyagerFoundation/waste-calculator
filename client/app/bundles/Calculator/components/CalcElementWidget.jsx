@@ -28,21 +28,17 @@ export default class CalcElementWidget extends React.Component {
     const { item, amount } = this.props;
     return (
       <tr key={item.id} id={item.id} >
-        <td>{item.name} + {item.id}</td>
-        <td>
-          <button key={item.id} onClick={this.removeItem.bind(this)} className="btn btn-outline-success">
-            Remove 
-          </button>
+        <td>{item.name}</td>
+        <td className="button-cell">
+          <img src='/assets/images/deduct_button.png' onClick={this.removeItem.bind(this)} />     
         </td>
-        <td>
+        <td className="amount">
           {amount}
         </td>
-        <td>
-          <button onClick={this.addItem.bind(this)} className="btn btn-outline-warning">
-            Add 
-          </button>
+        <td className="button-cell">
+          <img src='/assets/images/add_button.png' onClick={this.addItem.bind(this)} />
         </td>
       </tr>
-    );
+    );  
   }
 }

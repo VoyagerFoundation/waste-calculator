@@ -35,7 +35,7 @@ export default class CalculatorWidget extends React.Component {
 
   renderSection(name, elements_obj,items){
     return ( 
-      <table className="table table-hover" key={`${name}`}>
+      <table className="table table-hover calc-table" key={`${name}`}>
         <thead>
           <tr><th colSpan="5">{name}</th></tr> 
         </thead>
@@ -50,10 +50,11 @@ export default class CalculatorWidget extends React.Component {
     var groups = Object.keys(elements_obj);
     return _.map(groups, group => {
       return(
-        <div className="col-8" key={group}>
+        <div key={group}>
           <div className="row">
-              <h3>{group}</h3>
+            <div className="col-md-12">
               {this.renderSection(group, elements_obj[group], items)}
+                </div>
           </div>
         </div>
         );
@@ -70,11 +71,24 @@ export default class CalculatorWidget extends React.Component {
       );
     }
     return (
-      <div className="container">
-        {this.renderGroups(display_items, items)}
-        <div className="col-4">
-          <CalcResultsWidget waste={waste} />
+      <div className="calculator">
+      <div className="container w-100">
+        <div className="row w-100">
+          <div className="col-md-12">
+            <h1>Plastic Calculator</h1>
+          </div>
         </div>
+      </div>
+      <div className="container">
+        <div className="row w-100">
+          <div className="col-md-8">
+            {this.renderGroups(display_items, items)}
+          </div>
+          <div className="col-md-4">
+            <CalcResultsWidget waste={waste} />
+          </div>
+        </div>
+      </div>
       </div>
     );
   }
