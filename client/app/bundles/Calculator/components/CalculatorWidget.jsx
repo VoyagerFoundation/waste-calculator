@@ -72,10 +72,13 @@ export default class CalculatorWidget extends React.Component {
     }
     return (
       <div className="calculator">
-      <div className="container w-100">
+      <div className="container">
         <div className="row w-100">
           <div className="col-md-12">
             <h1>Plastic Calculator</h1>
+            <div className="disclaimer">
+              * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
+            </div>
           </div>
         </div>
       </div>
@@ -85,6 +88,7 @@ export default class CalculatorWidget extends React.Component {
             {this.renderGroups(display_items, items)}
           </div>
           <div className="col-md-4">
+            
             <CalcResultsWidget waste={waste} />
           </div>
         </div>
