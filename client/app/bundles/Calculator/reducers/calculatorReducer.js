@@ -17,64 +17,6 @@ export const $$initialState = Immutable.fromJS({
   display_items:{}
 });
 
-
-// function groupByInterval(items){
-//   return _.keyBy(items,function(i) {
-//     console.log('default_calc_mode');
-//     console.log(i.default_calc_mode);
-//     return i.default_calc_mode;
-//   });
-// }
-
-// function groupByWasteGroup(items, groups){
-//   return _.keyBy(items,function(i) {
-//     return groups[i.waste_group_id];
-//   });
-// }
-
-// export function groupItemsByGroupAndPeriod(items, groups_array){
-//   if (!items || !groups_array) return;
-  
-//   var organisedItems = {}
-//   debugger;
-
-//   var group_by_id = _.keyBy(groups_array,function(gr){
-//     return gr.get('id');
-//   });
-
-//   var items_by_groups = groupByWasteGroup(items, groups);
-
-//   _.map(items_by_groups, group => {
-//     var items_by_group_interval = groupByInterval(group);
-
-//     organisedItems[group] = items_by_group_interval;
-//   });
-
-//   return organisedItems;
-// }
-
-// export function groupItemsByPeriodAndGroup(items, groups_array){
-//   if (!items || !groups_array) return;
-  
-//   var organisedItems = {}
-//   debugger;
-
-//   var group_by_id = _.keyBy(groups_array,function(gr){
-//     return gr.get('id');
-//   });
-
-//   var items_by_groups = groupByWasteGroup(items, groups);
-
-//   _.map(items_by_groups, group => {
-//     var items_by_group_interval = groupByInterval(group);
-
-//     organisedItems[group] = items_by_group_interval;
-//   });
-
-//   return organisedItems;
-// }
-
-
 function calculateWaste(items_dict, selected_items_ids){
 
   var waste = { 
@@ -93,7 +35,7 @@ function calculateWaste(items_dict, selected_items_ids){
     var default_calc_mode = item.get('default_calc_mode');
     var factor = ( 'weekly' == default_calc_mode ) ? 4 : 1;
     var weight = item.get('weight_gram');
-    
+
     waste.total_monthly += weight * selected_item.amount * factor;
   }
   waste.total_yearly = waste.total_monthly * 12;

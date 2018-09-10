@@ -87,8 +87,7 @@ export default class CalculatorWidget extends React.Component {
           <div className="col-md-8">
             {this.renderGroups(display_items, items)}
           </div>
-          <div className="col-md-4">
-            
+          <div className="col-md-4">         
             <CalcResultsWidget waste={waste} />
           </div>
         </div>

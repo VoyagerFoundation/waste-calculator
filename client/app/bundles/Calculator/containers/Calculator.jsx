@@ -27,7 +27,7 @@ function select(state) {
   var waste_groups = listToObject(store.get('groups'));
   
   var items_by_id = byID(item_list);
-  var display_items = organizeByCalcIntervalAndWasteType(item_list,waste_groups );
+  var display_items = organizeByWasteTypeAndCalcInterval(item_list,waste_groups);
 
   return { 
     items_by_id: items_by_id,
@@ -52,29 +52,25 @@ function byID(arr){
   });
 }
 
-function organizeByCalcIntervalAndWasteType(items, waste_groups){
+function organizeByWasteTypeAndCalcInterval(items, waste_groups){
   if(!items) return {};
   var result = {};
-  var waste_groups_by_id = byID(waste_groups);
 
-  var intervals = _.uniq(
-      _.map(items, function(i){
-      return i.default_calc_mode
+  var filter_one = 'waste_group_name';
+  var filter_two = 'default_calc_mode';
+
+  var filters_one = _.uniq(
+      _.map(items, function(i){ 
+      return i[filter_one]
     })
   );
 
-  var groups_ids = _.uniq(
-    waste_groups.map(
-      function(i){return i.id;}
-    )
-  );
+  filters_one.forEach(function(group){
+    var filtered_items_group = _.filter(items,[filter_one, group]);
 
-  intervals.forEach(function(interval){
-    var filtered_items = _.filter(items,['default_calc_mode', interval]);
-    
-    result[interval] = _.groupBy(filtered_items, 
+    result[group] = _.groupBy(filtered_items_group, 
       function(fi){ 
-        return waste_groups_by_id[fi.waste_group_id].name; 
+        return fi[filter_two]; 
       }
     );
   });
