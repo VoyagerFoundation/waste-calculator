@@ -19,18 +19,26 @@ export default class CalculatorWidget extends React.Component {
   }
 
   renderSectionElements(elements_obj, items){
-    var group_element_keys = Object.keys(elements_obj);
-    return _.map(group_element_keys, element_key => { 
-      var elements = elements_obj[element_key];
-      return _.map(elements, element => {
-        var item = items.find(function(e){ return e.id == element.id; });
+    return _.map(elements_obj, element => {
+      var item = items.find(function(e){ return e.id == element.id; });
         var amount = 0;
         if(item){
           amount = item.amount;
         }
-        return this.renderElement(element, amount)
-      });
+        return this.renderElement(element, amount);
     });
+
+    // return _.map(group_element_keys, element_key => { 
+    //   var elements = elements_obj[element_key];
+    //   return _.map(elements, element => {
+    //     var item = items.find(function(e){ return e.id == element.id; });
+    //     var amount = 0;
+    //     if(item){
+    //       amount = item.amount;
+    //     }
+    //     return this.renderElement(element, amount)
+    //   });
+    // });
   }
 
   renderSection(name, elements_obj,items){
@@ -46,15 +54,36 @@ export default class CalculatorWidget extends React.Component {
     );
   }
 
+  renderSections(elements_obj, items){
+    var sections = Object.keys(elements_obj);
+    return _.map(sections, section => {
+      return(
+        <div key={section}>
+          <div className="row">
+              {this.renderSection(section, elements_obj[section], items)} 
+          </div>
+        </div>
+        );
+    });
+  }
+
+  renderGroup(group_name, elements_obj, items){
+    return(
+      <div className="col-md-12">
+        <h3>{group_name}</h3>
+        {this.renderSections(elements_obj,items)}
+      </div>
+    );
+  }
+
   renderGroups(elements_obj, items){
     var groups = Object.keys(elements_obj);
     return _.map(groups, group => {
       return(
         <div key={group}>
           <div className="row">
-            <div className="col-md-12">
-              {this.renderSection(group, elements_obj[group], items)}
-                </div>
+              {this.renderGroup(group, elements_obj[group], items)}
+              {/* {this.renderSection(group, elements_obj[group], items)} */}
           </div>
         </div>
         );
