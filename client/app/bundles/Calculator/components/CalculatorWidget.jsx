@@ -27,18 +27,6 @@ export default class CalculatorWidget extends React.Component {
         }
         return this.renderElement(element, amount);
     });
-
-    // return _.map(group_element_keys, element_key => { 
-    //   var elements = elements_obj[element_key];
-    //   return _.map(elements, element => {
-    //     var item = items.find(function(e){ return e.id == element.id; });
-    //     var amount = 0;
-    //     if(item){
-    //       amount = item.amount;
-    //     }
-    //     return this.renderElement(element, amount)
-    //   });
-    // });
   }
 
   renderSection(name, elements_obj,items){
@@ -83,7 +71,6 @@ export default class CalculatorWidget extends React.Component {
         <div key={group}>
           <div className="row">
               {this.renderGroup(group, elements_obj[group], items)}
-              {/* {this.renderSection(group, elements_obj[group], items)} */}
           </div>
         </div>
         );
