@@ -1,5 +1,5 @@
 import React from 'react';
-export default class CalcElementWidget extends React.Component {
+export default class CalcResulttWidget extends React.Component {
 
   render() {
     const { total_monthly, total_yearly } = this.props.waste;

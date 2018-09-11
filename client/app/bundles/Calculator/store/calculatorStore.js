@@ -27,7 +27,7 @@ export default props => {
       item_types: item_types, 
       items: initial_items, 
       groups,
-      intervals,
+      intervals
     }),
   }; 
 

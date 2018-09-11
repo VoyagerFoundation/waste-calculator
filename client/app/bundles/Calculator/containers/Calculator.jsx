@@ -1,17 +1,23 @@
 import React, { PropTypes } from 'react';
 import CalculatorWidget from '../components/CalculatorWidget';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
+import * as calculatorActionCreators from '../actions/calculatorActionCreators';
 
 const Calculator = (props) => {
-  const { items, waste, groups, display_items } = props; 
+  const { dispatch, items, waste, groups, display_items, selected_waste_group } = props; 
+  const actions = bindActionCreators(calculatorActionCreators, dispatch);
+  const {  selectWasteGroup } = actions;
 
   return (
     <CalculatorWidget {...{
       items,
       display_items, 
       waste,
-      groups
+      groups, 
+      selected_waste_group, 
+      selectWasteGroup
     }} />
   );
 };
