@@ -29,11 +29,13 @@ function select(state) {
     return {};
   } 
 
+  var selected_waste_group  = store.get('selected_waste_group');
   var item_list = listToObject(store.get('item_types'));
   var waste_groups = listToObject(store.get('groups'));
   
-  var items_by_id = byID(item_list);
-  var display_items = organizeByWasteTypeAndCalcInterval(item_list,waste_groups);
+  var filtered_items = _.filter(item_list,['waste_group_name', selected_waste_group]);
+  var items_by_id = byID(filtered_items);
+  var display_items = organizeByWasteTypeAndCalcInterval(filtered_items,waste_groups);
 
   return { 
     items_by_id: items_by_id,

@@ -79,16 +79,15 @@ export default class CalculatorWidget extends React.Component {
     });
   }
 
-  renderGroupButtons(display_items){
-    var groups = Object.keys(display_items);
+  renderGroupButtons(groups){
     const {  selectWasteGroup } = this.props;
     return _.map(groups, group => {
-      return (<SelectGroupBtnWidget group={group} key={group} selectWasteGroup={selectWasteGroup} />);
+      return (<SelectGroupBtnWidget group={group.name} key={group.name} selectWasteGroup={selectWasteGroup} />);
     });
   }
 
   render() {
-    const { waste,  display_items, items } = this.props;
+    const { waste,  display_items, items , groups } = this.props;
   
     var categories = Object.keys(display_items);
     if(categories.size > 0){
@@ -101,7 +100,7 @@ export default class CalculatorWidget extends React.Component {
       <div className="container">
         <div className="row w-100">
           <div className="col-md-12">
-            <h1>Plastic Calculator</h1> {this.renderGroupButtons(display_items)}
+            <h1>Plastic Calculator</h1> {this.renderGroupButtons(groups)}
             <div className="disclaimer">
               * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
             </div>
