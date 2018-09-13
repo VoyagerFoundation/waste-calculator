@@ -47,6 +47,8 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 
+gem "font-awesome-rails"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'react_on_rails', '>= 10.1'

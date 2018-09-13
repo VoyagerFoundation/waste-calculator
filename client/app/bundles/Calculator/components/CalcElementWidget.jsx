@@ -31,21 +31,36 @@ export default class CalcElementWidget extends React.Component {
     return '/assets/images/deduct_disabled_button.png'
   }
 
+  recyclable(isRecuclable){
+    if(isRecuclable){
+      return (<i className="fas fa-recycle info-tag recycle" ></i>);
+    }
+  }
+
   render() {
     const { item, amount } = this.props;
     return (
-      <tr key={item.id} id={item.id} >
-        <td>{item.name}</td>
-        <td className="button-cell">
-          <img src={this.deduct_image(amount)} onClick={this.removeItem.bind(this)} />     
-        </td>
-        <td className="amount">
-          {amount}
-        </td>
-        <td className="button-cell">
-          <img src='/assets/images/add_button.png' onClick={this.addItem.bind(this)} />
-        </td>
-      </tr>
+      <div key={item.id} id={item.id} className="row calc-item"> 
+        <div className="col-sm-9">
+          <span className="font-weight-bold">{item.name}</span>
+          {/* <i className="fas fa-info-circle info-tag"></i> */}
+          <span className="badge badge-warning info-tag">{item.plastic_type}</span>
+          {this.recyclable(item.recyclable)}
+        </div>
+        <div className="col-sm-3">
+          <div className="row calc-controls">
+            <div className="col-sm-4">
+              <i className="fas fa-minus-circle calc-button" onClick={this.removeItem.bind(this)}></i>
+            </div>
+            <div className="col-sm-4">
+              {amount}
+            </div>
+            <div className="col-sm-4">
+              <i className="fas fa-plus-circle calc-button" onClick={this.addItem.bind(this)}></i>
+            </div>
+          </div>
+        </div>
+      </div>
     );  
   }
 }

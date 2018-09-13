@@ -4,21 +4,6 @@ import CalcResultsWidget from '../components/CalcResultsWidget';
 import SelectGroupBtnWidget from '../components/SelectGroupBtnWidget';
 
 export default class CalculatorWidget extends React.Component {
-  
-  
-
-  renderElement(element, amount){
-    if('input' == element.type){
-      return(
-        <CalcElement item={element} key={element.id} amount={amount} />
-      );
-    }
-    else {
-      return(
-        <CalcElement item={element} key={element.id} amount={amount} />
-      );
-    }
-  }
 
   renderSectionElements(elements_obj, items){
     return _.map(elements_obj, element => {
@@ -27,43 +12,24 @@ export default class CalculatorWidget extends React.Component {
         if(item){
           amount = item.amount;
         }
-        return this.renderElement(element, amount);
+      return(<CalcElement item={element} key={element.id} amount={amount} />);
     });
-  }
-
-  renderSection(name, elements_obj,items){
-    return ( 
-      <table className="table table-hover calc-table" key={`${name}`}>
-        <thead>
-          <tr><th colSpan="5">{name}</th></tr> 
-        </thead>
-        <tbody>
-          {this.renderSectionElements(elements_obj, items)} 
-        </tbody> 
-      </table> 
-    );
   }
 
   renderSections(elements_obj, items){
     var sections = Object.keys(elements_obj);
     return _.map(sections, section => {
       return(
-        <div key={section}>
-          <div className="row">
-              {this.renderSection(section, elements_obj[section], items)} 
+        <div>
+          <div className="row calc-section">
+            <div className="col-md-12" key={section}>
+                <h4>{section}</h4>
+            </div>
           </div>
+          {this.renderSectionElements(elements_obj[section], items)} 
         </div>
         );
     });
-  }
-
-  renderGroup(group_name, elements_obj, items){
-    return(
-      <div className="col-md-12">
-        <h3>{group_name}</h3>
-        {this.renderSections(elements_obj,items)}
-      </div>
-    );
   }
 
   renderGroups(elements_obj, items){
@@ -71,9 +37,12 @@ export default class CalculatorWidget extends React.Component {
     return _.map(groups, group => {
       return(
         <div key={group}>
-          <div className="row">
-              {this.renderGroup(group, elements_obj[group], items)}
+          <div className="row calc-section text-capitalize font-italic">
+            <div className="col-md-12">
+              <h4>{group}</h4>
+            </div>
           </div>
+          {this.renderSections(elements_obj[group],items)}
         </div>
         );
     });
@@ -96,27 +65,34 @@ export default class CalculatorWidget extends React.Component {
       );
     }
     return (
-      <div className="calculator">
-      <div className="container">
-        <div className="row w-100">
+      <div className="container calculator">
+        <div className="row">
           <div className="col-md-12">
-            <h1>Plastic Calculator</h1> {this.renderGroupButtons(groups)}
-            <div className="disclaimer">
-              * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
-            </div>
+            <h1>Plastic Calculator</h1>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="row w-100">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="btn-group">
+              {this.renderGroupButtons(groups)}
+            </div>
+          </div> 
+        </div>
+
+        <div className="row">
+          <div className="col-md-12 disclaimer">
+            * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
+          </div>
+        </div>
+        
+        <div className="row">
           <div className="col-md-8">
             {this.renderGroups(display_items, items)}
           </div>
-          <div className="col-md-4">         
+          <div className="col-md-4">
             <CalcResultsWidget waste={waste} />
           </div>
         </div>
-      </div>
       </div>
     );
   }
