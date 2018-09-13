@@ -9,7 +9,7 @@ export default class SelectGroupBtnWidget extends React.Component {
   render() {
     const { group } = this.props;
     return (
-       <button key={group} onClick={this.selectGroup.bind(this)}>{group}</button>
+       <button type="button" className="btn btn-primary switch-category-btn" key={group} onClick={this.selectGroup.bind(this)}>{group}</button>
     );
   }
 }
