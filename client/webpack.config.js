@@ -10,7 +10,6 @@ const config = {
     'es5-shim/es5-sham',
     'babel-polyfill',
     './app/bundles/Calculator/startup/CalculatorApp',
-    './app/bundles/HelloWorld/startup/HelloWorldApp', 
   ],
 
   output: {
