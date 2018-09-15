@@ -32,49 +32,33 @@ export default class CalcResulttWidget extends React.Component {
     return this.getTonnes(grams) + this.getKilos(grams)  + this.getGrams(grams);
   }
 
+  rednedBox(key, title, value){
+    return (
+      <div className="calc-section rounded shadow p-3 mb-3" key={key}>
+        <div className="row">
+          <div className="col font-italic">
+            <h6>{title}</h6>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h4>{value}</h4>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { total_monthly, total_yearly } = this.props.waste;
-
+    var monthly = this.getWeight(total_monthly);
+    var yearly = this.getWeight(total_yearly);
+    var years60 = this.getWeight((total_yearly*60));
     return (
       <div className="waste-results" key="results">
-        <div className="calc-section rounded" key="results-monthly">
-          <div className="row">
-            <div className="col font-italic">
-              <h5>your monthly waste</h5>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <h3 key="">{this.getWeight(total_monthly)}</h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="calc-section rounded" key="results-yearly">
-          <div className="row" >
-            <div className="col font-italic">
-              <h5>your yearly waste:</h5>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <h3>{this.getWeight(total_yearly)}</h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="calc-section rounded" key="results-60-yearly">
-          <div className="row" >
-            <div className="col font-italic">
-              <h5>60 years waste</h5>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <h3>{this.getWeight((total_yearly*60))}</h3>
-            </div>
-          </div>
-        </div>
+        {this.rednedBox('results-monthly','your monthly waste', monthly)}
+        {this.rednedBox('results-yearly','your yearly waste', yearly)} 
+        {this.rednedBox('results-60-yearly','60 years waste', years60)}
       </div>
     );
   }
