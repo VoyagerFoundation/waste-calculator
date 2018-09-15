@@ -1,17 +1,23 @@
 import React, { PropTypes } from 'react';
 import CalculatorWidget from '../components/CalculatorWidget';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
+import * as calculatorActionCreators from '../actions/calculatorActionCreators';
 
 const Calculator = (props) => {
-  const { items, waste, groups, display_items } = props; 
+  const { dispatch, items, waste, groups, display_items, selected_waste_group } = props; 
+  const actions = bindActionCreators(calculatorActionCreators, dispatch);
+  const {  selectWasteGroup } = actions;
 
   return (
     <CalculatorWidget {...{
       items,
       display_items, 
       waste,
-      groups
+      groups, 
+      selected_waste_group, 
+      selectWasteGroup
     }} />
   );
 };
@@ -23,11 +29,13 @@ function select(state) {
     return {};
   } 
 
+  var selected_waste_group  = store.get('selected_waste_group');
   var item_list = listToObject(store.get('item_types'));
   var waste_groups = listToObject(store.get('groups'));
   
-  var items_by_id = byID(item_list);
-  var display_items = organizeByCalcIntervalAndWasteType(item_list,waste_groups );
+  var filtered_items = _.filter(item_list,['waste_group_name', selected_waste_group]);
+  var items_by_id = byID(filtered_items);
+  var display_items = organizeByWasteTypeAndCalcInterval(filtered_items,waste_groups);
 
   return { 
     items_by_id: items_by_id,
@@ -52,29 +60,25 @@ function byID(arr){
   });
 }
 
-function organizeByCalcIntervalAndWasteType(items, waste_groups){
+function organizeByWasteTypeAndCalcInterval(items, waste_groups){
   if(!items) return {};
   var result = {};
-  var waste_groups_by_id = byID(waste_groups);
 
-  var intervals = _.uniq(
-      _.map(items, function(i){
-      return i.default_calc_mode
+  var filter_one = 'waste_group_name';
+  var filter_two = 'default_calc_mode';
+
+  var filters_one = _.uniq(
+      _.map(items, function(i){ 
+      return i[filter_one]
     })
   );
 
-  var groups_ids = _.uniq(
-    waste_groups.map(
-      function(i){return i.id;}
-    )
-  );
+  filters_one.forEach(function(group){
+    var filtered_items_group = _.filter(items,[filter_one, group]);
 
-  intervals.forEach(function(interval){
-    var filtered_items = _.filter(items,['default_calc_mode', interval]);
-    
-    result[interval] = _.groupBy(filtered_items, 
+    result[group] = _.groupBy(filtered_items_group, 
       function(fi){ 
-        return waste_groups_by_id[fi.waste_group_id].name; 
+        return fi[filter_two]; 
       }
     );
   });
