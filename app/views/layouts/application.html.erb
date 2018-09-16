@@ -12,8 +12,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <nav class="navbar navbar-dark bg-dark">
+        Personal Waste Guide 
+      </nav>
+        
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="notice"><%= alert %></p>
+    <% end %>
+    
     <%= yield %>
 
     <%= render "shared/footer" %>

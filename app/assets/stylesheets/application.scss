@@ -15,3 +15,15 @@
  */
  
  @import "bootstrap";
+
+ .navbar {
+   font-size: 1em;
+   color:  #FFF;
+   a {
+     color: #FFF;
+   }
+   a:hover {
+     text-decoration: none;
+   }
+
+ }
