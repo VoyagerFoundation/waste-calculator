@@ -39,7 +39,7 @@ export default class CalculatorWidget extends React.Component {
         <div key={group}>
           <div className="row">
             <div className="col-md-6">
-              <div className="btn-group text-capitalize">
+              <div className="btn-group text-capitalize shadow">
                 {this.renderGroupButtons(groups_button)}
               </div>
             </div>
@@ -85,7 +85,7 @@ export default class CalculatorWidget extends React.Component {
             <CalcResultsWidget waste={waste} />
           </div>
         </div>
-        
+
         <div className="row">
           <div className="col-md-12 disclaimer">
             * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
