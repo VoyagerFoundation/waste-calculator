@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import CalcElementWidget from '../components/CalcElementWidget';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Immutable from 'immutable';
 import * as calculatorActionCreators from '../actions/calculatorActionCreators';
 
 function select(state) {
