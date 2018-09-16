@@ -15,12 +15,21 @@
  *= require_selfs
  */
 
- 
-
  @import "font-awesome";
 
-body {
+ body {
   font-family: Lato; 
+ }
+ 
+ .navbar {
+   font-size: 1em;
+   color:  #FFF;
+   a {
+     color: #FFF;
+   }
+   a:hover {
+     text-decoration: none;
+   }
 }
 
 .footer{
