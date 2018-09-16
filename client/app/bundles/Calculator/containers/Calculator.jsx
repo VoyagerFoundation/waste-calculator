@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import CalculatorWidget from '../components/CalculatorWidget';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Immutable from 'immutable';
 import * as calculatorActionCreators from '../actions/calculatorActionCreators';
 
 const Calculator = (props) => {
@@ -42,7 +43,6 @@ function select(state) {
     items: store.get('items'), 
     waste: store.get('waste'),
     groups: waste_groups, 
-    selected_waste_group: selected_waste_group
   };
 }
 

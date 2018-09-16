@@ -34,7 +34,7 @@ export default class CalcResulttWidget extends React.Component {
 
   rednedBox(key, title, value){
     return (
-      <div className="calc-section rounded shadow p-3 mt-3" key={key}>
+      <div className="calc-section rounded shadow p-3 mb-3" key={key}>
         <div className="row">
           <div className="col font-italic">
             <h6>{title}</h6>
