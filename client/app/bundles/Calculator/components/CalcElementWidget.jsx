@@ -42,7 +42,7 @@ export default class CalcElementWidget extends React.Component {
     return (
       <div key={item.id} id={item.id} className="row calc-item"> 
         <div className="col-sm-9">
-          <span className="font-weight-bold">{item.name}</span>
+          <span>{item.name}</span>
           {/* <i className="fas fa-info-circle info-tag"></i> */}
           <span className="badge badge-warning info-tag">{item.plastic_type}</span>
           {this.recyclable(item.recyclable)}
