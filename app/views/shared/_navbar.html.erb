@@ -6,10 +6,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <%= link_to "Calculator", '/', class:'nav-link' %>
+        <%= link_to "Calculator", '/', :class => current_class?('/') + ' nav-link' %>
       </li>
       <li class="nav-item">
-          <%= link_to "Plastic Cheat Sheet", 'cheat_sheet', class:'nav-link' %>
+          <%= link_to "Plastic Cheat Sheet", 'cheat_sheet',  :class => current_class?('/cheat_sheet') + ' nav-link' %>
       </li>
     </ul>
   </div>
