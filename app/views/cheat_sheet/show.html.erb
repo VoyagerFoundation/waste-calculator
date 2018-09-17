@@ -1,10 +1,39 @@
 
-  <!-- Content here -->
-  <% @facts.each do |fact| %>
-  <div class="container">
-    <div class="fact">
-      <h3><%= fact.title %></h3>
-      <%= fact.description.html_safe %>
+  <div class="container cheat-sheet">
+
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Plastic Cheat Sheet</h1>
     </div>
   </div>
-  <% end %>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="accordion" id="accordionExample">
+              <% @facts.each do |fact| %> 
+              <%
+                collapsed_link = "collapsed"
+                collapsed_block_style = ""
+                if fact.id == @facts.first.id
+                  collapsed_link = ""
+                  collapsed_block_style = "show"
+                end
+              %>
+                <div class="card">
+                  <div class="card-header" id="heading<%= fact.id %>">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link <%= collapsed_link%>" type="button" data-toggle="collapse"  data-target="#collapse<%= fact.id %>" aria-expanded="false" aria-controls="collapse<%= fact.id %>">
+                          <%= fact.title %>
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapse<%= fact.id %>" class="collapse <%= collapsed_block_style %>" aria-labelledby="heading<%= fact.id %>" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <%= fact.description.html_safe %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+      </div>
+  </div>
+</div>

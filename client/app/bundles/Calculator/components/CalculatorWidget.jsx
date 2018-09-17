@@ -73,7 +73,7 @@ export default class CalculatorWidget extends React.Component {
       <div className="container calculator">
         <div className="row">
           <div className="col-md-12">
-            <h1>Plastic Calculator</h1>
+            <h1>Plastic Waste Calculator</h1>
           </div>
         </div>
         
