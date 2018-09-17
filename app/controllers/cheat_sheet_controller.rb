@@ -7,4 +7,7 @@ class CheatSheetController < ApplicationController
     ids = Fact.pluck(:id)
     Fact.find(ids.sample)
   end
+
+  def contribute
+  end
 end
