@@ -23,7 +23,8 @@ function calculateWaste(items_dict, selected_items_ids){
 
   var waste = { 
     total_monthly: 0,
-    total_yearly: 0
+    total_yearly: 0, 
+    group: {},
   }
 
   var iterator = selected_items_ids.entries();
@@ -39,7 +40,11 @@ function calculateWaste(items_dict, selected_items_ids){
     var default_calc_mode = item.get('default_calc_mode');
     var factor = ( 'weekly' == default_calc_mode ) ? 4 : 1;
     var weight = item.get('weight_gram');
-    waste.total_monthly += weight * selected_item.amount * factor;
+    var item_weight_monthly = weight * selected_item.amount * factor;
+    waste.total_monthly += item_weight_monthly
+    
+    var currnet_group_val = waste.group.hasOwnProperty(item.get('waste_group_name')) ? waste.group[item.get('waste_group_name')] : 0;
+    waste.group[item.get('waste_group_name')] = item_weight_monthly + currnet_group_val;
   }
   waste.total_yearly = waste.total_monthly * 12;
   return waste;
