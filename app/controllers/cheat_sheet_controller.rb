@@ -10,4 +10,7 @@ class CheatSheetController < ApplicationController
 
   def contribute
   end
+
+  def about
+  end
 end
