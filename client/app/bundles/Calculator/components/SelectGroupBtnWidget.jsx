@@ -7,9 +7,12 @@ export default class SelectGroupBtnWidget extends React.Component {
   }
 
   render() {
-    const { group } = this.props;
+    const { group, selected_waste_group } = this.props;
+    var active = (group == selected_waste_group ? 'active' : '');
+    var className = `btn btn-primary switch-category-btn ${active}`;
+
     return (
-       <button type="button" className="btn btn-primary switch-category-btn" key={group} onClick={this.selectGroup.bind(this)}>{group}</button>
+       <button type="button" className={className} key={group} onClick={this.selectGroup.bind(this)}>{group}</button>
     );
   }
 }

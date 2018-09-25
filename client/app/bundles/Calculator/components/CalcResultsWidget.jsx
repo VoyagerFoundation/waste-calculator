@@ -2,7 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-export default class CalcResulttWidget extends React.Component {
+export default class CalcResultsWidget extends React.Component {
 
   getTonnes(grams){
     var tonnes = Math.floor(grams/1000000);
@@ -37,7 +37,7 @@ export default class CalcResulttWidget extends React.Component {
 
   rednedBox(key, title, value){
     return (
-      <div className="calc-section rounded shadow p-3 mb-3" key={key}>
+      <div className="calc-section rounded shadow p-3 mt-3" key={key}>
         <div className="row">
           <div className="col font-italic">
             <h6>{title}</h6>
@@ -112,7 +112,8 @@ export default class CalcResulttWidget extends React.Component {
           name: 'Waste Areas',
           colorByPoint: true,
           data: groupFormatted
-      }]
+      }],
+      colors: ['#94A8FF', '#FFCEAB', '#ABFFE5']
   }
 
     return (
@@ -120,7 +121,9 @@ export default class CalcResulttWidget extends React.Component {
         {this.rednedBox('results-monthly','your monthly waste', monthly)}
         {this.rednedBox('results-yearly','your yearly waste', yearly)} 
         {this.rednedBox('results-60-yearly','60 years waste', years60)}
-        {this.renderPie(chartOptions)}
+        <div className="side-pie">
+          {this.renderPie(chartOptions)}
+        </div>
       </div>
     );
   }
