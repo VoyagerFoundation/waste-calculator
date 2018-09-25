@@ -12,7 +12,3 @@ Technologies used:
 Deployable on:
 
 * [Heroku](https://www.heroku.com)
-<<<<<<< HEAD
-=======
-
->>>>>>> readme init
