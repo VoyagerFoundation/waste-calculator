@@ -44,17 +44,18 @@ import CalcElement from '../containers/CalcElement';
       <div>
          <div className="row">
           <div className="col-md-8">
-            {this.renderGroups(display_items, items)}
+            {this.renderGroups(display_items, items)} 
+            <div className="row">
+              <div className="col-md-12 ">
+                * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
+              </div>
+            </div>
           </div>
           <div className="col-md-4">
             <CalcResultsWidget waste={waste} />
           </div>
         </div>
-         <div className="row">
-          <div className="col-md-12 disclaimer">
-            * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
-          </div>
-        </div>
+         
       </div>
     );
   } 

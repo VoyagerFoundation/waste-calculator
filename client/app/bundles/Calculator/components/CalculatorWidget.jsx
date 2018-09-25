@@ -1,5 +1,5 @@
 import React from 'react';
-import CalcResultWidget from '../components/CalcResultWidget';
+import CalcReportWidget from '../components/CalcReportWidget';
 import SelectGroupBtnWidget from '../components/SelectGroupBtnWidget';
 import CalcPadWidget from '../components/CalcPadWidget';
 
@@ -20,7 +20,7 @@ export default class CalculatorWidget extends React.Component {
     const { waste,  display_items, items , groups, selected_waste_group } = this.props;
 
     if(selected_waste_group == "report"){
-      return(<CalcResultWidget />);
+      return(<CalcReportWidget  waste={waste}  />);
     }
     else {
       return(<CalcPadWidget waste={waste} display_items={display_items} items={items} groups={groups} selected_waste_group={selected_waste_group} />);
@@ -49,7 +49,7 @@ export default class CalculatorWidget extends React.Component {
             <div className="btn-group text-capitalize shadow">
               {this.renderGroupButtons(groups)}
             </div>
-            <button type="button" className="btn btn-primary shadow ml-2" onClick={this.showReport.bind(this)}>Report</button>
+            <button type="button" className="btn btn-info shadow ml-2" onClick={this.showReport.bind(this)}>Report</button>
           </div>
         </div>
         {this.dispatchScreen()}

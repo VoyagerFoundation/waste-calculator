@@ -49,13 +49,13 @@ export default class CalcElementWidget extends React.Component {
         </div>
         <div className="col-sm-3">
           <div className="row calc-controls">
-            <div className="col-sm-4">
+            <div className="col-sm-1 col-md-3">
               <i className="fas fa-minus-circle calc-button" onClick={this.removeItem.bind(this)}></i>
             </div>
-            <div className="col-sm-4">
+            <div className="col-sm-1 col-md-3">
               {amount}
             </div>
-            <div className="col-sm-4">
+            <div className="col-sm-1 col-md-3">
               <i className="fas fa-plus-circle calc-button" onClick={this.addItem.bind(this)}></i>
             </div>
           </div>
