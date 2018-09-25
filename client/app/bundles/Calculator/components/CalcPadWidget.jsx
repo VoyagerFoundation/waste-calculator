@@ -42,24 +42,20 @@ import CalcElement from '../containers/CalcElement';
     const { waste,  display_items, items , selected_waste_group} = this.props;
     return(
       <div>
-        <div className="row">
-            <div className="col-md-8 text-capitalize font-italic text-right">
-              <h4 className="pr-3">{selected_waste_group}</h4>
-            </div>
-        </div>
          <div className="row">
           <div className="col-md-8">
-            {this.renderGroups(display_items, items)}
+            {this.renderGroups(display_items, items)} 
+            <div className="row">
+              <div className="col-md-12 ">
+                * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
+              </div>
+            </div>
           </div>
           <div className="col-md-4">
             <CalcResultsWidget waste={waste} />
           </div>
         </div>
-         <div className="row">
-          <div className="col-md-12 disclaimer">
-            * weight is average taken from amazon products and calculated from fluid ounces and shipping weight
-          </div>
-        </div>
+         
       </div>
     );
   } 
