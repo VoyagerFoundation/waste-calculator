@@ -16,18 +16,7 @@ export default class CalculatorWidget extends React.Component {
     });
   }
   
-  dispatchScrean(){
-    const { waste,  display_items, items , groups, selected_waste_group } = this.props;
-
-    if(selected_waste_group == "report"){
-      return(<CalcResultWidget />);
-    }
-    else {
-      return(<CalcPadWidget waste={waste} display_items={display_items} items={items} groups={groups} selected_waste_group={selected_waste_group} />);
-    }
-  }
-  
-  dispatchScrean(){
+  dispatchScreen(){
     const { waste,  display_items, items , groups, selected_waste_group } = this.props;
 
     if(selected_waste_group == "report"){
@@ -63,7 +52,7 @@ export default class CalculatorWidget extends React.Component {
             <button type="button" className="btn btn-primary shadow ml-2" onClick={this.showReport.bind(this)}>Report</button>
           </div>
         </div>
-        {this.dispatchScrean()}
+        {this.dispatchScreen()}
       </div>
     );
   }
