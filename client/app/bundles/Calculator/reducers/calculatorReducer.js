@@ -16,7 +16,7 @@ export const $$initialState = Immutable.fromJS({
   groups:['food'],
   intervals:['weekly','monthly'], 
   display_items:{},
-  selected_waste_group:'food',
+  selected_waste_group:'kitchen',
 });
 
 function calculateWaste(items_dict, selected_items_ids){
