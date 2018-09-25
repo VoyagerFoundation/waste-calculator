@@ -112,7 +112,8 @@ export default class CalcResulttWidget extends React.Component {
           name: 'Waste Areas',
           colorByPoint: true,
           data: groupFormatted
-      }]
+      }],
+      colors: ['#94A8FF', '#FFCEAB', '#ABFFE5']
   }
 
     return (
