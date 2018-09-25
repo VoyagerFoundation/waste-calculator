@@ -42,11 +42,6 @@ import CalcElement from '../containers/CalcElement';
     const { waste,  display_items, items , selected_waste_group} = this.props;
     return(
       <div>
-        <div className="row">
-            <div className="col-md-8 text-capitalize font-italic text-right">
-              <h4 className="pr-3">{selected_waste_group}</h4>
-            </div>
-        </div>
          <div className="row">
           <div className="col-md-8">
             {this.renderGroups(display_items, items)}
