@@ -10,9 +10,9 @@ export default class CalculatorWidget extends React.Component {
   }
 
   renderGroupButtons(groups){
-    const {  selectWasteGroup } = this.props;
+    const {  selectWasteGroup, selected_waste_group } = this.props;
     return _.map(groups, group => {
-      return (<SelectGroupBtnWidget group={group.name} key={group.name} selectWasteGroup={selectWasteGroup} />);
+      return (<SelectGroupBtnWidget group={group.name} key={group.name} selectWasteGroup={selectWasteGroup} selected_waste_group={selected_waste_group} />);
     });
   }
   
@@ -49,7 +49,7 @@ export default class CalculatorWidget extends React.Component {
             <div className="btn-group text-capitalize shadow">
               {this.renderGroupButtons(groups)}
             </div>
-            <button type="button" className="btn btn-primary shadow ml-2" onClick={this.showReport.bind(this)}>Report</button>
+              <button type="button" className="btn btn-primary shadow ml-2" onClick={this.showReport.bind(this)} >Report</button>
           </div>
         </div>
         {this.dispatchScrean()}
