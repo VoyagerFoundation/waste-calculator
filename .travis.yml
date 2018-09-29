@@ -1,6 +1,6 @@
 sudo: required
 language: ruby
-rvm: 2.4.2
+rvm: 2.5.1
 services:
   - postgresql
 before_script:
@@ -14,7 +14,7 @@ before_install:
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen scn 1600x1200x16"
 install: 
   - travis_retry gem install bundler
-  - travis_retry nvm install 10.3
+  - travis_retry nvm install 11.1.3
   - node -v
   - travis_retry npm i -g yarn
   - travis_retry yarn global add babel-cli
@@ -25,7 +25,7 @@ install:
   - cd ..
   - bundle exec rake prepare_for_ci
 node_js:
-  - "10.3"
+  - "11.1.3"
 
 cache:
   bundler: true
@@ -40,4 +40,3 @@ env:
     - USE_COVERALLS=TRUE
 script:
   - bundle exec rake
-
