@@ -24,7 +24,7 @@ function calculateWaste(items_dict, selected_items_ids){
   var waste = { 
     total_monthly: 0,
     total_yearly: 0, 
-    group: {},
+    by_group: {},
   }
 
   var iterator = selected_items_ids.entries();
@@ -43,8 +43,8 @@ function calculateWaste(items_dict, selected_items_ids){
     var item_weight_monthly = weight * selected_item.amount * factor;
     waste.total_monthly += item_weight_monthly
     
-    var currnet_group_val = waste.group.hasOwnProperty(item.get('waste_group_name')) ? waste.group[item.get('waste_group_name')] : 0;
-    waste.group[item.get('waste_group_name')] = item_weight_monthly + currnet_group_val;
+    var currnet_group_val = waste.by_group.hasOwnProperty(item.get('waste_group_name')) ? waste.by_group[item.get('waste_group_name')] : 0;
+    waste.by_group[item.get('waste_group_name')] = item_weight_monthly + currnet_group_val;
   }
   waste.total_yearly = waste.total_monthly * 12;
   return waste;

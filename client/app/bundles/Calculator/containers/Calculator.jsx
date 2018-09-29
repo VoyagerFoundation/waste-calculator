@@ -82,7 +82,6 @@ function organizeByWasteTypeAndCalcInterval(items, waste_groups){
       }
     );
   });
-
   return result;
 }
 

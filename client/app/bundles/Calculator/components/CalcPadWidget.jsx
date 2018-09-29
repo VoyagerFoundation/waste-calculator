@@ -39,7 +39,7 @@ import CalcElement from '../containers/CalcElement';
     });
   }
    render(){
-    const { waste,  display_items, items , selected_waste_group} = this.props;
+    const { waste,  display_items, items } = this.props;
     return(
       <div>
          <div className="row">
