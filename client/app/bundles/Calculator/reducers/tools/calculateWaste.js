@@ -5,6 +5,7 @@ export function calculateWaste(items_dict, selected_items_ids){
     total_yearly: 0, 
     by_group: {},
     by_type: {},
+    by_recyclable: {},
   }
 
   var iterator = selected_items_ids.entries();
@@ -27,6 +28,7 @@ export function calculateWaste(items_dict, selected_items_ids){
     //prepare aggregations
     setAggregationItemValue(waste.by_group,'waste_group_name',item, item_weight_monthly);
     setAggregationItemValue(waste.by_type,'plastic_type',item, item_weight_monthly);
+    setAggregationItemValue(waste.by_recyclable,'recyclable',item, item_weight_monthly);
   }
 
   //calculate persiods
