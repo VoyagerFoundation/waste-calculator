@@ -1,7 +1,5 @@
 import React from 'react';
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
-import PieByGroupWidget from './charts/PieByGroupWidget'; 
+import PieWidget from './charts/PieWidget'; 
 
 export default class CalcResultsWidget extends React.Component {
 
@@ -64,7 +62,7 @@ export default class CalcResultsWidget extends React.Component {
         {this.rednedBox('results-monthly','your monthly waste', monthly)}
         {this.rednedBox('results-yearly','your yearly waste', yearly)} 
         {this.rednedBox('results-60-yearly','60 years waste', years60)}
-        <PieByGroupWidget waste={this.props.waste} />>
+        <PieWidget aggregation={this.props.waste.by_group} pie_name="Waste Areas" />
       </div>
     );
   }

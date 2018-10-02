@@ -2,7 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-export default class PieByGroupWidget extends React.Component {
+export default class PieWidget extends React.Component {
   
   prepareData(groups_data){
     var result_data = [];
@@ -19,7 +19,7 @@ export default class PieByGroupWidget extends React.Component {
     return result_data;
   }
 
-  chartOptions(data) {
+  chartOptions(data, pie_name) {
       const chartOptions = {
         chart: {
             plotBackgroundColor: null,
@@ -28,7 +28,7 @@ export default class PieByGroupWidget extends React.Component {
             type: 'pie'
         },
         title: {
-            text: 'Waste Areas'
+            text: pie_name
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -44,7 +44,7 @@ export default class PieByGroupWidget extends React.Component {
             }
         },
         series: [{
-            name: 'Waste Areas',
+            name: pie_name,
             colorByPoint: true,
             data: data
         }],
@@ -55,9 +55,9 @@ export default class PieByGroupWidget extends React.Component {
   }
 
   render() {
-    const { by_group } = this.props.waste;
-    let data = this.prepareData(by_group);
-    let options = this.chartOptions(data);
+    const { aggregation, pie_name } = this.props;
+    let data = this.prepareData(aggregation);
+    let options = this.chartOptions(data, pie_name);
 
     return (
         <div key='group_chart'>
