@@ -139,7 +139,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (1.5.3)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     inherited_resources (1.9.0)
       actionpack (>= 4.2, < 5.3)
@@ -334,7 +334,7 @@ DEPENDENCIES
   mini_racer
   pg
   puma (~> 3.11)
-  rails (~> 5.2.0)
+  rails (~> 5.2.2)
   react_on_rails (~> 11.1.4)
   sass-rails (~> 5.0)
   seed_dump
