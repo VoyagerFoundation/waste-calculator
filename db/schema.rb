@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2018_08_04_135240) do
   end
 
   create_table "plastic_items", force: :cascade do |t|
-    t.string "key"
     t.string "name"
     t.decimal "weight_gram"
     t.boolean "recyclable"
