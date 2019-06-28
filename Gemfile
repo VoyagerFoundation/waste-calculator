@@ -24,6 +24,7 @@ gem 'devise'
 gem 'activeadmin'
 gem 'activeadmin_froala_editor'
 
+gem 'markdown'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
